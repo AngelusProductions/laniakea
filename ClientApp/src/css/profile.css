@@ -1,0 +1,11 @@
+﻿.profile-photo {
+    border-radius: 10%;
+    width: 66%;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+}
+
+.profile-text {
+    text-align: center;
+}

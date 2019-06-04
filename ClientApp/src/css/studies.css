@@ -1,0 +1,50 @@
+﻿
+
+.study-button {
+    border-radius: 15%;
+    display: inline-block;
+    padding: 2rem;
+    margin: 10% 2rem;
+    animation: ensmall 0.5s ease;
+    box-shadow: rgba(0, 255, 255, 0.38)  -0.6rem -0.6rem 0rem, rgba(0, 148, 255, 0.52) 0.6rem 0.6rem 0rem;
+}
+    .study-button > a > img {
+        width: 12.5rem;
+        height: 10rem;
+    }
+    .study-button:hover {
+        animation: enlarge 1s infinite ease;
+        box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0.8rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0.8rem;
+    }
+    .study-button:active {
+        animation: ensmall 0.1s ease;
+    }
+
+
+@keyframes enlarge {
+    from {
+        transform: scale(1);
+        box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0rem;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+       box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0.8rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0.8rem;
+    }
+}
+
+@keyframes ensmall {
+    from {
+        transform: scale(1.1);
+        box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0.8rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0.8rem;
+    }
+    to {
+        transform: scale(1);
+        box-shadow: rgba(0, 255, 255, 0.38) -0.6rem -0.6rem 0rem, rgba(0, 148, 255, 0.52) 0.6rem 0.6rem 0rem;
+    }
+}

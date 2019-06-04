@@ -1,0 +1,8 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "dependencies": {
+    "react-router": "^5.0.0"
+  }
+}

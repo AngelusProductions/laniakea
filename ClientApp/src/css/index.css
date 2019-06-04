@@ -1,0 +1,50 @@
+﻿* {
+    list-style-type: none;
+}
+    *:hover {
+        text-decoration: none;
+    }
+
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    body {
+        padding-top: 50px;
+    }
+}
+
+.landing-page {
+    text-align: center;
+}
+
+#laniakeaBackground {
+    width: 50%;
+}
+
+#laniakeaTitle {
+    font-size: 10rem;
+    color: rgba(0, 123, 255, 0.5);
+}
+
+#laniakeaSubtitle {
+    font-size: 1.35rem;
+}
+
+#logo-landing-page {
+    width: 30%;
+    height: auto;
+    margin-top: 40%;
+}
+    #logo-landing-page:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+/*.content {
+    margin-left: 5rem;
+    text-align: left;
+}*/
+
+.index-table {
+    margin-top: 3rem;
+}
