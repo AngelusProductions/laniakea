@@ -48,7 +48,6 @@ class StudiesContainer extends Component {
     }
 };
 
-
 export default connect(
     state => state.studies,
     dispatch => bindActionCreators(actionCreators, dispatch)

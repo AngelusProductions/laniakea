@@ -5,23 +5,23 @@
     display: inline-block;
     padding: 2rem;
     margin: 10% 2rem;
-    animation: ensmall 0.5s ease;
-    box-shadow: rgba(0, 255, 255, 0.38)  -0.6rem -0.6rem 0rem, rgba(0, 148, 255, 0.52) 0.6rem 0.6rem 0rem;
+    animation: ensmallStudies 0.5s ease;
+    box-shadow: rgba(0, 255, 255, 0.38) -0.6rem -0.6rem 0rem, rgba(0, 148, 255, 0.52) 0.6rem 0.6rem 0rem;
 }
     .study-button > a > img {
         width: 12.5rem;
         height: 10rem;
     }
     .study-button:hover {
-        animation: enlarge 1s infinite ease;
+        animation: enlargeStudies 1s infinite ease;
         box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0.8rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0.8rem;
     }
     .study-button:active {
-        animation: ensmall 0.1s ease;
+        animation: ensmallStudies 0.1s ease;
     }
 
 
-@keyframes enlarge {
+@keyframes enlargeStudies {
     from {
         transform: scale(1);
         box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0rem;
@@ -38,7 +38,7 @@
     }
 }
 
-@keyframes ensmall {
+@keyframes ensmallStudies {
     from {
         transform: scale(1.1);
         box-shadow: rgba(0, 148, 255, 0.52) -0.6rem -0.6rem 0.8rem, rgba(0, 255, 255, 0.38) 0.6rem 0.6rem 0.8rem;

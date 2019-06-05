@@ -1,7 +1,9 @@
 {
   "name": "myproject",
   "version": "1.0.0",
-  "devDependencies": {},
+  "devDependencies": {
+    "react-svg-buttons": "^0.4.0"
+  },
   "dependencies": {
     "react-router": "^5.0.0"
   }
