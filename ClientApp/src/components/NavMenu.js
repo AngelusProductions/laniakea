@@ -1,41 +1,66 @@
-﻿import React from 'react'
-import { NavItem } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+﻿import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import '../css/nav-menu.css'
 
-export default props => (
-    <nav className="navbar navbar-expand-lg navbar-light">
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <div className="navbar-nav mr-auto index-nav-items">
-                <div className="nav-item">
-                    <LinkContainer to={'/'} exact>
-                        <NavItem>
-                            home
-                        </NavItem>
-                    </LinkContainer>
-                </div>
-                <div className="nav-item">
-                    <LinkContainer to={'/studies'} >
-                        <NavItem >
-                            studies
-                        </NavItem>
-                    </LinkContainer>
-                </div>
-                <div className="nav-item">
-                    <LinkContainer to={`users/1`}>
-                        <NavItem>
-                           profile
-                        </NavItem>
-                    </LinkContainer>
-                </div>
-                <div className="nav-item">
-                    <LinkContainer to={'/signin'}>
-                        <NavItem>
-                            settings
-                        </NavItem>
-                    </LinkContainer>
-                </div>
-            </div>
-        </div>
-    </nav>
-)
+class NavMenu extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            selected: 1
+        } 
+    }
+
+    componentWillMount() {
+        const urls = {
+            "/": 1,
+            "/studies": 2,
+            "/users/1": 3,
+            "/signin": 4
+        }
+        Object.keys(urls).forEach( url => {
+            if (url === this.props.location.pathname) {
+                this.setState({ selected: urls[url]})
+            }
+        })
+    }
+
+    onLinkClick(e) { this.setState({ selected: parseInt(e.target.id) }) }
+
+    render() {
+        const links = {
+            "home": "/",
+            "studies": "/studies",
+            "profile": "/users/1",
+            "account": "/signin"
+        }
+
+        let i = 0
+        const titles = Object.keys(links)
+        const navbar = titles.map( link => {
+            const title = Object.keys(links)[i]
+            const url = links[title]
+            const cssClass = this.state.selected === i + 1
+                ? "navbar-link selected"
+                : "navbar-link"
+            i++
+            return (
+                <Link to={url} key={i}>
+                    <li id={i}
+                        className={cssClass}
+                        onClick={this.onLinkClick.bind(this)}>
+                        {title}
+                    </li>
+                </Link>
+                )
+        })
+        return (
+            <ul id="navbarList">
+                {navbar}
+            </ul>
+        )
+    }
+}
+
+export default withRouter(connect()(NavMenu))

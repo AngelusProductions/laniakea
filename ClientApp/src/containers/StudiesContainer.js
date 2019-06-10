@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import { actionCreators } from '../store/Studies'
 
@@ -15,9 +15,10 @@ class StudiesContainer extends Component {
         }
     }
 
-    componentWillMount() { this.props.requestStudies() }
+    componentDidMount() { this.props.requestStudies() }
 
     render() {
+        //debugger
         let studies
         if (this.props.studies.length > 0) {
             studies =
@@ -48,7 +49,7 @@ class StudiesContainer extends Component {
     }
 };
 
-export default connect(
+export default withRouter(connect(
     state => state.studies,
     dispatch => bindActionCreators(actionCreators, dispatch)
-)(StudiesContainer)
+)(StudiesContainer))

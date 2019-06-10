@@ -1,5 +1,7 @@
 ﻿import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+
 import '../css/profile.css'
 
 const Profile = props => (
@@ -17,4 +19,4 @@ const Profile = props => (
 )
 
 
-export default connect()(Profile)
+export default withRouter(connect()(Profile))

@@ -1,78 +1,60 @@
-﻿﻿
-
-.index-nav-items {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-}
-.nav-item > li > a:hover {
-    text-decoration: none;
-    transform: scale(1.1);
+﻿
+#navbarRow {
+    width: 80%;
+    margin: 1rem auto;
+    border-radius: 10%;
 }
 
-.navbar li .glyphicon {
-    margin-right: 10px;
+.selected {
+    color: mediumslateblue;
+    border-bottom: solid 3px #007bff;
+    text-shadow: 0rem 0.3rem 0.1rem #ff00a5;
+    animation: none;
+}
+    .selected:hover {
+        animation: none;
+    }
+
+.navbar-link {
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem;
+    margin: 2rem 1rem;
+    text-shadow: 0rem 0.3rem 0.1rem #00ffff4a;
+    border-radius: 15%;
+    animation: ensmallNavbarLink 0.5s;
+    -webkit-box-reflect: below 2px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
+}
+    .navbar-link:hover {
+        animation: enlargeNavbarLink 0.5s;
+        color: aqua;
+        transform: scale(1.1);
+    }
+
+
+@keyframes enlargeNavbarLink {
+    from {
+        transform: scale(1);
+        color: #007bff;
+        -webkit-box-reflect: none;
+    }
+    to {
+        transform: scale(1.1);
+        color: aqua;
+        -webkit-box-reflect: none;
+    }
 }
 
-/* Highlighting rules for nav menu items */
-.navbar .navbar-nav .active a,
-.navbar .navbar-nav .active a:hover,
-.navbar .navbar-nav .active a:focus {
-    background-image: none;
-    background-color: #4189C7;
-    color: white;
-}
-
-@media (min-width: 768px) {
-    /* On large screens, convert the nav menu to a vertical sidebar */
-    .navbar {
-        height: 100%;
-        width: calc(25% - 20px);
+@keyframes ensmallNavbarLink {
+    from {
+        transform: scale(1.1);
+        color: aqua;
+        -webkit-box-reflect: below 2px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
+        color: aqua;
     }
-
-    .navbar {
-        border-radius: 0;
-        border-width: 0;
-        height: 100%;
-    }
-
-    .navbar-header {
-        float: none;
-    }
-
-    .navbar .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0;
-    }
-
-    .navbar .container-fluid {
-        padding: 0;
-        margin: 0;
-    }
-
-        .navbar .container-fluid .navbar-brand {
-            margin: 0;
-        }
-
-    .navbar ul {
-        float: none;
-    }
-
-    .navbar li {
-        float: none;
-        font-size: 15px;
-        margin: 6px;
-    }
-
-        .navbar li a {
-            padding: 10px 16px;
-            border-radius: 4px;
-        }
-
-    .navbar a {
-        /* If a menu item's text is too long, truncate it */
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    to {
+        transform: scale(1);
+        -webkit-box-reflect: below 2px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)));
+        color: #007bff;
     }
 }

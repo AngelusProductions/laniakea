@@ -1,0 +1,16 @@
+﻿* {
+    list-style-type: none;
+}
+    *:hover {
+        text-decoration: none;
+    }
+
+body {
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 50px;
+    }
+}

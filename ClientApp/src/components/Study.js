@@ -1,39 +1,58 @@
 ﻿import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import { PlusButton } from 'react-svg-buttons'
 
+import Tree from './Tree'
 import { actionCreators } from '../store/Studies'
-
 import '../css/study-web.css'
 
 class Study extends Component {
-    constructor(props) {
-        super(props) 
-
-        this.onSiteClick = this.onSiteClick.bind(this)
-    }
 
     componentWillMount() {
         this.props.requestStudy(this.props.match.params.id)
+        this.props.requestStudyComponents(this.props.match.params.id)
     }
 
-    onSiteClick(e) {}
-
     render() {
-        let study
-        if (Object.keys(this.props.study).length > 0) {
-            debugger
-            study =
+        let studyShow, studyComponentsShow
+        const study = this.props.study
+        //const studyComponents = this.props.studyComponents
+
+        if (Object.keys(study).length > 0) {
+            studyShow =
                 <React.Fragment>
-                    <img className="study-page-logo" src={this.props.study.logo} alt={this.props.study.name} />
-                    <p>{this.props.study.protocol}</p>
+                    <img className="study-page-logo" src={study.logo} alt={study.name} />
+                    <ul id="studyShowDetails">
+                        <li>
+                            <span className="study-detail-label">Sponsor: </span>
+                            <span className="study-detail-datum">{study.sponsor}</span>
+                        </li>
+                        <li>
+                            <span className="study-detail-label">Server: </span>
+                            <span className="study-detail-datum">{study.server}</span>
+                        </li>
+                        <li>
+                            <span className="study-detail-label">Database: </span>
+                            <span className="study-detail-datum">{study.databaseName}</span>
+                        </li>
+                        <li>
+                            <span className="study-detail-label">Protocol: </span>
+                            <span className="study-detail-datum">{study.protocol}</span>
+                        </li>
+                    </ul>
                 </React.Fragment>
         }
 
         return (
             <div className="study-wrapper">
+
+                <Tree
+                    study={this.props.study}
+                    studyComponents={this.props.studyComponents}
+                />
 
                 <div id="studyButtonsWrapper">
                     <div className="add-site-wrapper">
@@ -46,7 +65,7 @@ class Study extends Component {
                             id="addSubjectButton"
                             onClick={this.onSiteClick}
                         />
-                        <p id="addSiteButtonLabel">add site</p>
+                        <p id="addSiteButtonLabel">site</p>
                     </div>
                     <div className="add-subject-wrapper">
                         <PlusButton
@@ -57,18 +76,19 @@ class Study extends Component {
                             className="add-button"
                             id="addSiteButton"
                         />
-                        <p id="addSubjectButtonLabel">add subject</p>
+                        <p id="addSubjectButtonLabel">subject</p>
                     </div>
                 </div>
 
-                {study}
+                {studyShow}
+                {studyComponentsShow}
             </div>
         );
     }
 };
 
-export default connect(
+export default withRouter(connect(
     state => state.studies,
     dispatch => bindActionCreators(actionCreators, dispatch)
-)(Study)
+)(Study))
 

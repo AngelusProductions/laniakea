@@ -1,18 +1,24 @@
-﻿const initialState = { studies: [], study: {}, isLoading: false }
+﻿const initialState = {
+    studies: [],
+    study: {},
+    studyComponents: [],
+    isLoading: false
+}
 
 const requestStudiesType = 'REQUEST_STUDIES'
 const receiveStudiesType = 'RECEIVE_STUDIES'
+
 const requestStudyType = 'REQUEST_STUDY'
 const receiveStudyType = 'RECEIVE_STUDY'
-const addStudyType = 'ADD_STUDY'
 
-let studiesList = []
-let newStudiesList = []
+const requestStudyComponentsType = 'REQUEST_STUDYCOMPONENTS'
+const receiveStudyComponentsType = 'RECEIVE_STUDYCOMPONENTS'
 
 export const actionCreators = {
+
     requestStudies: () => async (dispatch, getState) => {
         dispatch({ type: requestStudiesType })
-        const url = `/api/studies`
+        const url = `/api/Studies`
         const response = await fetch(url)
         const studiesList = await response.json()
         dispatch({ type: receiveStudiesType, studiesList })
@@ -26,24 +32,19 @@ export const actionCreators = {
         dispatch({ type: receiveStudyType, study })
     },
 
-    addStudy: (study) => async (dispatch, getState) => {
-        const url = "/api/studies"
-        const data = JSON.stringify({ name: study.name })
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: data
-        })
-            .then(data => dispatch({ type: addStudyType, study: data }))
+    requestStudyComponents: (id) => async (dispatch, getState) => {
+        dispatch({ type: requestStudyComponentsType })
+        const url = `/api/Studies/GetStudyComponents/${id}`
+        const response = await fetch(url)
+        const studyComponentsList = await response.json()
+        dispatch({ type: receiveStudyComponentsType, studyComponentsList })
     }
 }
 
 export const reducer = (state, action) => {
     state = state || initialState
     switch (action.type) {
+
         case requestStudiesType:
             return {
                 ...state,
@@ -55,6 +56,7 @@ export const reducer = (state, action) => {
                 studies: action.studiesList,
                 isLoading: false
             }
+
         case requestStudyType:
             return {
                 ...state,
@@ -66,15 +68,19 @@ export const reducer = (state, action) => {
                 study: action.study,
                 isLoading: false
             }
-        case addStudyType:
-            newStudiesList = studiesList.push({
-                name: action.study.name
-            })
+
+        case requestStudyComponentsType:
             return {
                 ...state,
-                studies: newStudiesList,
+                isLoading: true
+            }
+        case receiveStudyComponentsType:
+            return {
+                ...state,
+                studyComponents: action.studyComponentsList,
                 isLoading: false
             }
+
         default:
             return state
     }
