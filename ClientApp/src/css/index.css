@@ -1,17 +1,4 @@
-﻿* {
-    list-style-type: none;
-}
-    *:hover {
-        text-decoration: none;
-    }
-
-@media (max-width: 767px) {
-    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
-    body {
-        padding-top: 50px;
-    }
-}
-
+﻿
 .landing-page {
     text-align: center;
 }

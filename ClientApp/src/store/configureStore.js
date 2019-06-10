@@ -1,5 +1,7 @@
-﻿import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
+﻿import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import thunk from 'redux-thunk'
 
 import * as Studies from './Studies'
@@ -24,6 +26,6 @@ export default function configureStore(history, initialState) {
     return createStore(
         rootReducer,
         initialState,
-        compose(applyMiddleware(...middleware), ...enhancers)
+        composeWithDevTools(applyMiddleware(...middleware), ...enhancers)
     )
 }

@@ -1,5 +1,6 @@
 ﻿import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 const LandingPage = () => {
     return (
@@ -12,6 +13,6 @@ const LandingPage = () => {
     )
 };
 
-export default connect()(LandingPage)
+export default withRouter(connect()(LandingPage))
 
 
