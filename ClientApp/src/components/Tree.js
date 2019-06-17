@@ -12,7 +12,7 @@ import '../css/tree.css'
 class Tree extends Component {
 
 
-    //componentWillMount() {
+    //componentDidMount() {
     //    debugger
     //    this.props.requestStudy(this.props.match.params.id)
     //    this.props.requestStudyComponents(this.props.match.params.id)
@@ -49,7 +49,7 @@ class Tree extends Component {
         })
 
         return (
-            <div className="tree-menu-wrapper">
+            <div id="treeMenuWrapper">
                 <TreeMenu
                     data={treeData}
                     id="studyShowTreeMenu"

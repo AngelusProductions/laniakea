@@ -11,7 +11,7 @@ const LandingPage = () => {
             <img src = "https://ness-production.s3.amazonaws.com/NESSLogo.gif" id="logo-landing-page" alt="ness" />
         </div>
     )
-};
+}
 
 export default withRouter(connect()(LandingPage))
 

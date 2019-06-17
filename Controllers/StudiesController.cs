@@ -11,13 +11,14 @@ namespace Laniakea.Controllers
         [HttpGet]
         public List<Study> GetStudies()
         {
+
+
             return NEValidation.Studies;
         }
 
         [HttpGet("[action]/{id}")]
         public JsonResult GetStudy(long id)
         {
-            
             return Json(NEValidation.Studies.Find((e) => e.Id == id));
         }
 

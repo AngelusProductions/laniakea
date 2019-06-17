@@ -5,7 +5,7 @@ import Layout from './components/Layout'
 import LandingPage from './components/LandingPage'
 import Profile from './components/Profile'
 import SignIn from './components/SignIn'
-import Study from './components/Study'
+import StudyPageContainer from './containers/StudyPageContainer'
 import StudiesContainer from './containers/StudiesContainer'
 
 export default () => (
@@ -16,7 +16,7 @@ export default () => (
 
                 <Route exact path="/studies" component={StudiesContainer} />
 
-                <Route exact path="/studies/:id" component={Study} />
+                <Route path="/studies/:id" component={StudyPageContainer} />
 
                 <Route path="/users/:id" component={Profile} />
 

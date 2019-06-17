@@ -1,16 +1,51 @@
 ﻿
-.study-wrapper {
+#studyPageWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+#studyMenuWrapper {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+#studyTabsWrapper {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.study-tab {
+    display: flex;
+    font-size: 90%;
+    text-align: center;
+    margin: auto;
+}
+
+#studyTabContentWrapper {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+    display: grid;
+}
+
+#studyInfoWrapper {
+    grid-column: 1 / 4;
+    grid-row: 1 / span 5;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
 }
 
-.tree-menu-wrapper {
+#treeMenuWrapper {
     grid-column: 1; 
     grid-row: 1;
-    margin: 0 5rem;
-    width: 60%;
+    margin: 0;
+    width: 33.333%;
+    position: absolute;
+    background: rgba(0, 123, 255, 0.07);
 }
 
 #studyButtonsWrapper {
@@ -47,17 +82,17 @@
     }
 
 #studyShowDetails {
-    text-align: center;
-    margin: 50% auto;
-    display: block;
+    margin: 1rem auto;
+    padding: 0;
     grid-column: 2;
     grid-row: 1;
-    width: 75%;
-    animation: borderToLeft 0.5s ease;
+    width: 85%;
+    text-align: center;
+    animation: borderToLeft 0.3s ease;
 }
     #studyShowDetails:hover {
-        width: 80%;
-        animation: borderToRight 0.5s ease;
+        width: 90%;
+        animation: borderToRight 0.3s ease;
     }
     #studyShowDetails li {
         display: grid;
@@ -70,14 +105,6 @@
     font-weight: bold;
     font-size: 0.8rem;
 } 
-
-.study-page-logo {
-    width: 75%;
-    height: auto;
-    margin: 0 auto;
-    grid-row: 1;
-    grid-column: 2;
-}
 
 #addSiteButtonLabel,
 #addSubjectButtonLabel {
@@ -124,20 +151,22 @@
 
 @keyframes borderToRight {
     from {
-        width: 75%;
+        width: 85%;
         left: 0;
     }
     to {
-        width: 80%;
+        width: 90%;
         left: 5%;
     }
 }
 
 @keyframes borderToLeft {
     from {
-        width: 80%;
+        width: 90%;
+        left: 5%;
     }
     to {
-        width: 75%;
+        width: 85%;
+        left: 0;
     }
 }

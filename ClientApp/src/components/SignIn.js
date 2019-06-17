@@ -1,28 +1,58 @@
-﻿import React from 'react'
+﻿import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { withRouter } from 'react-router-dom'
+
+import { actionCreators } from '../store/Users'
 
 import '../css/sign-in.css'
 
-const SignIn = props => (
-    <div className="wrapper fadeInDown">
-        <div id="formContent">
-            <div className="fadeIn first">
-                <img src="https://s3.amazonaws.com/ness-production/NESSLogo.gif" id="icon" alt="ness" />
-            </div>
+class SignIn extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: "",       
+            password: ""
+        }
+    }
 
-            <form>
-                <input type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
-                <input type="text" id="password" className="fadeIn third" name="login" placeholder="password" />
-                <input type="submit" className="fadeIn fourth" value="Log In" />
-            </form>
+    componentDidMount() { this.props.requestCurrentUser() }
 
-            <div id="formFooter">
-                <a className="underlineHover" href="https://login.yahoo.com/">Forgot Password?</a>
-            </div>
+    onUsernameChange(e) { this.setState({ username: e.target.value }) }
+    onPasswordChange(e) { this.setState({ password: e.target.value }) }
 
-        </div>
-    </div>
-)
+    onLogInClick(e) {
+        e.preventDefault()
+        this.props.attemptLogIn(this.state.username, this.state.password)
+        //debugger
+    }
 
-export default withRouter(connect()(SignIn))
+    render() {
+
+        return (
+            <div className = "wrapper fadeInDown" >
+                <div id="formContent">
+                    <div className="fadeIn first">
+                        <img src="https://s3.amazonaws.com/ness-production/NESSLogo.gif" id="icon" alt="ness" />
+                    </div>
+
+                    <form>
+                        <input onChange={this.onUsernameChange.bind(this)} type="text" id="login" className="fadeIn second" name="login" placeholder="username" />
+                        <input onChange={this.onPasswordChange.bind(this)} type="text" id="password" className="fadeIn third" name="login" placeholder="password" />
+                        <input onClick={this.onLogInClick.bind(this)} type="submit" className="fadeIn fourth" value="Log In" />
+                    </form>
+
+                    <div id="formFooter">
+                        <a className="underlineHover" href="/signin">Forgot Password?</a>
+                    </div>
+
+                </div> 
+            </div> 
+        )
+    }
+}
+
+export default withRouter(connect(
+    state => state.users,
+    dispatch => bindActionCreators(actionCreators, dispatch)
+)(SignIn))

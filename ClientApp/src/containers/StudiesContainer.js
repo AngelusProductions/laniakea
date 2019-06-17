@@ -18,7 +18,6 @@ class StudiesContainer extends Component {
     componentDidMount() { this.props.requestStudies() }
 
     render() {
-        //debugger
         let studies
         if (this.props.studies.length > 0) {
             studies =

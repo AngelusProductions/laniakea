@@ -12,7 +12,7 @@ class NavMenu extends Component {
         } 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const urls = {
             "/": 1,
             "/studies": 2,
@@ -26,10 +26,10 @@ class NavMenu extends Component {
         })
     }
 
-    onLinkClick(e) { this.setState({ selected: parseInt(e.target.id) }) }
+    onLinkClick(e) { this.setState({ selected: parseInt(e.target.id, 0) }) }
 
     render() {
-        const links = {
+        const urls = {
             "home": "/",
             "studies": "/studies",
             "profile": "/users/1",
@@ -37,10 +37,10 @@ class NavMenu extends Component {
         }
 
         let i = 0
-        const titles = Object.keys(links)
+        const titles = Object.keys(urls)
         const navbar = titles.map( link => {
-            const title = Object.keys(links)[i]
-            const url = links[title]
+            const title = Object.keys(urls)[i]
+            const url = urls[title]
             const cssClass = this.state.selected === i + 1
                 ? "navbar-link selected"
                 : "navbar-link"
