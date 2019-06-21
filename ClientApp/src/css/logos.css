@@ -1,14 +1,10 @@
 ﻿
-.study-page-logo {
-    position: absolute;
+#logo1 {
+    width: 25%;
+    margin: -2% 5%;
 }
 
 #logo2 {
-    width: 31%;
-    margin: 4% 1%;
-}
-
-#logo18 {
-    width: 25%;
-    margin: -5% 4%;
+    width: 28%;
+    margin: 5% 2%;
 }

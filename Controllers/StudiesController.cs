@@ -11,8 +11,6 @@ namespace Laniakea.Controllers
         [HttpGet]
         public List<Study> GetStudies()
         {
-
-
             return NEValidation.Studies;
         }
 

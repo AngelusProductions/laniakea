@@ -2,6 +2,8 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
+import '../css/landing-page.css'
+
 const LandingPage = () => {
     return (
         <div className="landing-page">

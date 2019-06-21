@@ -48,57 +48,28 @@
     background: rgba(0, 123, 255, 0.07);
 }
 
-#studyButtonsWrapper {
-    grid-row: 1;
-    grid-column: 3;
-    display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-}
-
-.add-site-wrapper, .add-subject-wrapper {
-    padding: 1rem;
-}
-
-.add-site-wrapper {
-    grid-row: 1;
-    grid-column: 3;
-}
-.add-subject-wrapper {
-    grid-row: 2;
-    grid-column: 3;
-}
-
-.add-button {
-    display: inline-block;
-    animation: ensmallStudy 0.5s ease;
-}
-    .add-button:hover {
-        filter: hue-rotate(-90deg);
-        animation: enlargeStudy 0.3s ease;
-    }
-    .add-button:active {
-        filter: hue-rotate(180deg);
-        animation: ensmallStudy 0.3s ease;
-    }
-
 #studyShowDetails {
     margin: 1rem auto;
     padding: 0;
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
-    width: 85%;
+    /*width: 100%;
+    left: 10%;*/
     text-align: center;
-    animation: borderToLeft 0.3s ease;
+    /*animation: borderToLeft 0.3s ease;*/
 }
-    #studyShowDetails:hover {
-        width: 90%;
+    /*#studyShowDetails:hover {
+        width: 110%;
+        left: 0;
         animation: borderToRight 0.3s ease;
-    }
+    }*/
     #studyShowDetails li {
         display: grid;
         grid-template: repeat(2, 1fr) / 1fr;
         margin-top: 1rem;
+        border-radius: 10%;
         border-bottom: solid 2px blueviolet;
+        -webkit-box-reflect: below 2px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(250, 250, 250, 0.1)))
     }
 
 .study-detail-label {
@@ -151,22 +122,22 @@
 
 @keyframes borderToRight {
     from {
-        width: 85%;
-        left: 0;
+        width: 100%;
+        left: 10%;
     }
     to {
-        width: 90%;
-        left: 5%;
+        width: 110%;
+        left: 0%;
     }
 }
 
 @keyframes borderToLeft {
     from {
-        width: 90%;
-        left: 5%;
+        width: 110%;
+        left: 0;
     }
     to {
-        width: 85%;
-        left: 0;
+        width: 100%;
+        left: 10%;
     }
 }

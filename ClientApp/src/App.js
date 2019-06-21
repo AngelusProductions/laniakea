@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Layout from './components/Layout'
 import LandingPage from './components/LandingPage'
-import Profile from './components/Profile'
-import SignIn from './components/SignIn'
-import StudyPageContainer from './containers/StudyPageContainer'
+import Account from './components/Account'
+
 import StudiesContainer from './containers/StudiesContainer'
+import StudyPageContainer from './containers/StudyPageContainer'
+import MasterQueryContainer from './containers/MasterQueryContainer'
 
 export default () => (
     <Router>
@@ -18,9 +19,9 @@ export default () => (
 
                 <Route path="/studies/:id" component={StudyPageContainer} />
 
-                <Route path="/users/:id" component={Profile} />
+                <Route path="/account" component={Account} />
 
-                <Route path="/signin" component={SignIn} />
+                <Route path="/search" component={MasterQueryContainer} />
             </Switch>
         </Layout>
     </Router>

@@ -21,7 +21,7 @@ const logInFailureType = 'LOG_IN_FAILURE'
 
 export const actionCreators = {
 
-    requestUsers: () => async (dispatch, getState) => {
+    requestUsers: () => async (dispatch) => {
         dispatch({ type: requestUsersType })
         const url = `/api/Users`
         const response = await fetch(url)
@@ -29,7 +29,7 @@ export const actionCreators = {
         dispatch({ type: receiveUsersType, usersList })
     },
 
-    requestUser: (id) => async (dispatch, getState) => {
+    requestUser: (id) => async (dispatch) => {
         dispatch({ type: requestUserType })
         const url = `/api/Users/GetUser/${id}`
         const response = await fetch(url)
@@ -37,7 +37,7 @@ export const actionCreators = {
         dispatch({ type: receiveUserType, user })
     },
 
-    requestCurrentUser: () => async (dispatch, getState) => {
+    requestCurrentUser: () => async (dispatch) => {
         dispatch({ type: requestCurrentUserType })
         const url = `/api/Users/GetCurrentUser`
         const response = await fetch(url)
@@ -45,26 +45,16 @@ export const actionCreators = {
         dispatch({ type: receiveCurrentUserType, currentUser })
     },
 
-    attemptLogIn: (username, password) => async (dispatch, getState) => {
+    attemptLogIn: (username, password) => async (dispatch) => {
         dispatch({ type: attemptLogInType })
-        const data = {
-            "Username": username,
-            "Password": password
-        }
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            data: JSON.stringify(data)
-        }
-        const url = `/api/Users/AttemptLogIn`
-        const response = await fetch(url, requestOptions)
-        if (response.ok === true) {
-            const currentUser = await response.json()
-            dispatch({ logInSuccessType, currentUser })
-        } else {
-            const error = await response.json()
-            dispatch({ logInFailureType, error })
-        }
+        const data = { Username: username, Password: password }
+        const request = await fetch(`/api/Users/AttemptLogIn`, {
+            method: 'POST', body: JSON.stringify(data)
+        })
+        const response = await request.json()
+        debugger
+        response.ok ? dispatch({ type: logInSuccessType, response })
+                    : dispatch({ type: logInFailureType, response })
     }
 }
 
@@ -116,13 +106,13 @@ export const reducer = (state, action) => {
     case logInSuccessType:
         return {
             ...state,
-            currentUser: action.currentUser,
+            response: action.response,
             isLoading: false
         }        
     case logInFailureType:
         return {
             ...state,
-            error: action.error,
+            response: action.response,
             isLoading: false
         }
     default:

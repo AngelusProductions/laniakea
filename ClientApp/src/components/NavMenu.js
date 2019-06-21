@@ -7,17 +7,15 @@ import '../css/nav-menu.css'
 class NavMenu extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            selected: 1
-        } 
+        this.state = { selected: 1 } 
     }
 
     componentDidMount() {
         const urls = {
-            "/": 1,
-            "/studies": 2,
-            "/users/1": 3,
-            "/signin": 4
+            '/': 1,
+            '/studies': 2,
+            '/search': 3,
+            '/account': 4
         }
         Object.keys(urls).forEach( url => {
             if (url === this.props.location.pathname) {
@@ -30,10 +28,10 @@ class NavMenu extends Component {
 
     render() {
         const urls = {
-            "home": "/",
-            "studies": "/studies",
-            "profile": "/users/1",
-            "account": "/signin"
+            'home': '/',
+            'studies': '/studies',
+            'search': '/search',
+            'account': '/account'
         }
 
         let i = 0
@@ -42,8 +40,8 @@ class NavMenu extends Component {
             const title = Object.keys(urls)[i]
             const url = urls[title]
             const cssClass = this.state.selected === i + 1
-                ? "navbar-link selected"
-                : "navbar-link"
+                ? 'navbar-link selected'
+                : 'navbar-link'
             i++
             return (
                 <Link to={url} key={i}>
@@ -55,11 +53,7 @@ class NavMenu extends Component {
                 </Link>
                 )
         })
-        return (
-            <ul id="navbarList">
-                {navbar}
-            </ul>
-        )
+        return (<ul id="navbarList">{navbar}</ul>)
     }
 }
 

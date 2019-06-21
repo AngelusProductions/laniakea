@@ -31,7 +31,6 @@ class StudyPageContainer extends Component {
 
         let i = 0
         const tabComponents = Object.keys(headers).map(header => {
-            //const url = headers[header]
             const id = `tab-${i}`
             i++
             return (
@@ -43,7 +42,6 @@ class StudyPageContainer extends Component {
                 >{header}</li>
             )
         })
-
         return tabComponents
     }
 

@@ -5,9 +5,9 @@ import { withRouter } from 'react-router-dom'
 
 import { actionCreators } from '../store/Users'
 
-import '../css/sign-in.css'
+import '../css/account.css'
 
-class SignIn extends Component {
+class Account extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,14 +17,12 @@ class SignIn extends Component {
     }
 
     componentDidMount() { this.props.requestCurrentUser() }
-
     onUsernameChange(e) { this.setState({ username: e.target.value }) }
     onPasswordChange(e) { this.setState({ password: e.target.value }) }
 
     onLogInClick(e) {
         e.preventDefault()
         this.props.attemptLogIn(this.state.username, this.state.password)
-        //debugger
     }
 
     render() {
@@ -43,7 +41,7 @@ class SignIn extends Component {
                     </form>
 
                     <div id="formFooter">
-                        <a className="underlineHover" href="/signin">Forgot Password?</a>
+                        <a className="underlineHover" href="/account">Forgot Password?</a>
                     </div>
 
                 </div> 
@@ -55,4 +53,4 @@ class SignIn extends Component {
 export default withRouter(connect(
     state => state.users,
     dispatch => bindActionCreators(actionCreators, dispatch)
-)(SignIn))
+)(Account))
