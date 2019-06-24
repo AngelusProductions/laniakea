@@ -17,7 +17,6 @@ namespace Laniakea.Controllers
         [HttpGet("[action]/{id}")]
         public JsonResult GetStudy(long id)
         {
-            
             return Json(NEValidation.Studies.Find((e) => e.Id == id));
         }
 

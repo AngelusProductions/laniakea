@@ -5,12 +5,33 @@
         text-decoration: none;
     }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.normalize {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+ol, ul, dl {
+    margin: 0;
     padding: 0;
 }
 
-@media (max-width: 767px) {
-    body {
-        padding-top: 50px;
-    }
+button:focus {
+    outline: none;
+}
+
+input[type=text] {
+    background-color: lavender;
 }

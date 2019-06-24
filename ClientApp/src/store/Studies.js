@@ -5,39 +5,30 @@
     isLoading: false
 }
 
-const requestStudiesType = 'REQUEST_STUDIES'
-const receiveStudiesType = 'RECEIVE_STUDIES'
-
-const requestStudyType = 'REQUEST_STUDY'
-const receiveStudyType = 'RECEIVE_STUDY'
-
-const requestStudyComponentsType = 'REQUEST_STUDYCOMPONENTS'
-const receiveStudyComponentsType = 'RECEIVE_STUDYCOMPONENTS'
-
 export const actionCreators = {
 
     requestStudies: () => async (dispatch, getState) => {
-        dispatch({ type: requestStudiesType })
+        dispatch({ type: 'REQUEST_STUDIES' })
         const url = `/api/Studies`
         const response = await fetch(url)
         const studiesList = await response.json()
-        dispatch({ type: receiveStudiesType, studiesList })
+        dispatch({ type: 'RECEIVE_STUDIES', studiesList })
     },
 
     requestStudy: (id) => async (dispatch, getState) => {
-        dispatch({ type: requestStudyType })
+        dispatch({ type: 'REQUEST_STUDY' })
         const url = `/api/Studies/GetStudy/${id}`
         const response = await fetch(url)
         const study = await response.json()
-        dispatch({ type: receiveStudyType, study })
+        dispatch({ type: 'RECEIVE_STUDY', study })
     },
 
     requestStudyComponents: (id) => async (dispatch, getState) => {
-        dispatch({ type: requestStudyComponentsType })
+        dispatch({ type: 'REQUEST_STUDYCOMPONENTS' })
         const url = `/api/Studies/GetStudyComponents/${id}`
         const response = await fetch(url)
         const studyComponentsList = await response.json()
-        dispatch({ type: receiveStudyComponentsType, studyComponentsList })
+        dispatch({ type: 'RECEIVE_STUDYCOMPONENTS', studyComponentsList })
     }
 }
 
@@ -45,42 +36,41 @@ export const reducer = (state, action) => {
     state = state || initialState
     switch (action.type) {
 
-        case requestStudiesType:
+        case 'REQUEST_STUDIES':
             return {
                 ...state,
                 isLoading: true
             }
-        case receiveStudiesType:
+        case 'RECEIVE_STUDIES':
             return {
                 ...state,
                 studies: action.studiesList,
                 isLoading: false
             }
 
-        case requestStudyType:
+        case 'REQUEST_STUDY':
             return {
                 ...state,
                 isLoading: true
             }
-        case receiveStudyType:
+        case 'RECEIVE_STUDY':
             return {
                 ...state,
                 study: action.study,
                 isLoading: false
             }
 
-        case requestStudyComponentsType:
+        case 'REQUEST_STUDYCOMPONENTS':
             return {
                 ...state,
                 isLoading: true
             }
-        case receiveStudyComponentsType:
+        case 'RECEIVE_STUDYCOMPONENTS':
             return {
                 ...state,
                 studyComponents: action.studyComponentsList,
                 isLoading: false
             }
-
         default:
             return state
     }

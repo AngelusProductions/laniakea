@@ -4,7 +4,7 @@
 }
 
 #laniakeaBackground {
-    width: 50%;
+    width: 26rem;
 }
 
 #laniakeaTitle {
@@ -17,20 +17,15 @@
 }
 
 #logo-landing-page {
-    width: 30%;
+    width: 14rem;
     height: auto;
-    margin-top: 40%;
+    margin-top: 9rem;
 }
     #logo-landing-page:hover {
         -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
         transform: scale(1.1);
     }
-
-/*.content {
-    margin-left: 5rem;
-    text-align: left;
-}*/
 
 .index-table {
     margin-top: 3rem;

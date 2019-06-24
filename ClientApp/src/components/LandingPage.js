@@ -2,6 +2,8 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
+import '../css/landing-page.css'
+
 const LandingPage = () => {
     return (
         <div className="landing-page">
@@ -11,7 +13,7 @@ const LandingPage = () => {
             <img src = "https://ness-production.s3.amazonaws.com/NESSLogo.gif" id="logo-landing-page" alt="ness" />
         </div>
     )
-};
+}
 
 export default withRouter(connect()(LandingPage))
 
