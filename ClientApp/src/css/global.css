@@ -4,6 +4,9 @@
     *:hover {
         text-decoration: none;
     }
+    *:focus {
+        outline: none;
+    }
 
 html {
     height: 100%;
@@ -14,6 +17,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Fira Sans', monospace;
 }
 
 .normalize {
@@ -33,5 +37,24 @@ button:focus {
 }
 
 input[type=text] {
-    background-color: lavender;
+    border-radius: 1.4rem;
+    border: solid 0.15rem #23478e2e;
+    box-shadow: 0rem 0.2rem 0.1rem #61616191;
+    text-align: center;
+}
+
+input[type=text]:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+input[type=text]:focus::-webkit-input-placeholder {
+    opacity: 0.2;
+}
+
+input[type=text]:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+input[type=text]:focus::-webkit-input-placeholder {
+    opacity: 0.1;
 }

@@ -1,23 +1,23 @@
-﻿import Overview from './Overview'
+﻿import About from './About'
 import Forms from './Forms'
 import Visits from './Visits'
 import Sites from './Sites'
 import Devices from './Devices'
 import Users from './Users'
 import Data from './Data'
-import Documents from './Documents'
+import Docs from './Docs'
 import Notes from './Notes'
-import Automation from './Automation'
+import Auto from './Auto'
 
 export {
-    Overview,
+    About,
     Forms,
     Visits,
     Sites,
     Devices,
     Users,
     Data,
-    Documents,
+    Docs,
     Notes,
-    Automation
-}
+    Auto
+    }

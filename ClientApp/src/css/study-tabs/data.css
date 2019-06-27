@@ -1,0 +1,57 @@
+﻿
+#dataPageWrapper {
+    display: grid;
+    grid-template: repeat(6, 1fr)/repeat(6, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+#dataSearchWrapper {
+    grid-area: 1/1/1/7;
+    text-align: center;
+}
+
+#quickSearchTitle {
+    font-size: 3rem;
+    margin: 2rem 0;
+    display: inline-block;
+}
+
+#quickSearchIcon {
+    grid-area: 2/1/2/2;
+    width: 4rem;
+    height: auto;
+    display: inline-block;
+    margin: 0 1rem 1rem 0;
+    border: solid 0.15rem #23478e2e;
+    border-radius: 1.4rem;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    padding: 0.2rem;
+}
+
+#dataSearchFieldsWrapper {
+    grid-area: 1/1/7/7;
+}
+
+.data-search-input {
+    display: inline;
+    width: 15%;
+    margin-left: 1%;
+}
+
+#dataSearchButton {
+    margin-top: 3rem;
+    border-radius: 1rem;
+    padding: 0.3rem 3rem;
+    background: #67a3fff0;
+    color: white;
+    border: solid 0.1rem aliceblue;
+    box-shadow: 0rem 0.1rem 0.1rem #61616191;
+}
+
+    #dataSearchButton:active {
+        background: #67a3ffbd;
+        box-shadow: none;
+        transform: scale(0.9);
+        box-shadow: 0rem 0 0.2rem #61616191;
+    }

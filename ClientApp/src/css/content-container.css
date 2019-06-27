@@ -1,0 +1,11 @@
+﻿#contentContainerWrapper {
+    grid-area: 1/4/12/13;
+
+    display: grid;
+    grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+}
+
+#contentWrapper {
+    background: linear-gradient( white, rgba(0, 123, 255, 0.09) 200%);
+    grid-area: 2/1/13/13;
+}

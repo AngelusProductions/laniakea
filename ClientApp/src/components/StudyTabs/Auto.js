@@ -2,12 +2,12 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-const Documents = props => {
+const Auto = props => {
     return (
         <div>
-            Documents
+            Auto
         </div>
     )
 }
 
-export default withRouter(connect()(Documents))
+export default withRouter(connect()(Auto))
