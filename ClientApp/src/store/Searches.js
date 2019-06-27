@@ -7,9 +7,9 @@ const masterSearchRequestType = 'REQUEST_MASTER_SEARCH'
 const masterSearchResponseType = 'RECEIVE_MASTER_SEARCH'
 
 export const actionCreators = {
-    masterSearch: search => async dispatch => {
+    masterSearch: (search, i, j) => async dispatch => {
         dispatch({ type: masterSearchRequestType })
-        const url = `/api/searches/MasterSearch/${JSON.stringify(search)}`
+        const url = `/api/searches/MasterSearch/${i}/${j}/${JSON.stringify(search)}`
         const response = await fetch(url,
             {
                 method: 'GET',

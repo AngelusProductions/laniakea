@@ -21,7 +21,7 @@ class AdvancedSearch extends Component {
 
     onSubmit(e) {
         e.preventDefault()
-        this.props.masterSearch(this.state)
+		this.props.masterSearch(this.state, this.props.currentStudyId, this.props.currentStudyId) //correct this to be studyCompId
     }
 
     onFieldChange(e) { this.setState({ [e.target.name]: e.target.value }) }
@@ -31,7 +31,6 @@ class AdvancedSearch extends Component {
         return fields.map( field => {
             const id = `${field}Search`
             const stateField = `${field}Field`
-            const blurPlaceholder = `this.placeholder = ${field}`
             return (
                 <input
                     type="text"
@@ -42,14 +41,12 @@ class AdvancedSearch extends Component {
                     className="data-search-input"
                     value={this.state[stateField]}
                     onChange={this.onFieldChange.bind(this)}
-                    onFocus="this.placeholder = ''"
-                    onBlur={blurPlaceholder}
                 />
             )
         })
     }
     
-    render() {
+	render() {
         return (
             <div id="dataSearchWrapper">
                 <img id="quickSearchIcon" src="https://ness-production.s3.amazonaws.com/searchIcon.png" alt="master-search" />
@@ -70,6 +67,6 @@ class AdvancedSearch extends Component {
 }
 
 export default withRouter(connect(
-    state => state.searches,
+	state => { state.searches, state.studies },
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(AdvancedSearch))
