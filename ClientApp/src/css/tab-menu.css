@@ -1,0 +1,33 @@
+﻿
+#tabMenuWrapper {
+    grid-area: 1/1/2/13;
+
+    display: grid;
+    grid-template: 1fr/repeat(10, 1fr);
+}
+
+.tab {
+    text-align: center;
+    margin: auto;
+    padding: 0.4rem 0.6rem;
+    width: 95%;
+    background: white;
+    border-radius: 0.4rem;
+    display: inline;
+}
+.tab:hover {
+        color: #67a4ff;
+        cursor: pointer;
+    }
+.tab:active {
+    transform: scale(0.9);
+}
+
+.selected-tab {
+    background: #67a4ff;
+    color: white;
+}
+
+.selected-tab:hover {
+    color: white;
+}

@@ -1,1 +1,21 @@
 ﻿
+div#treeWrapper > div > ul > li:nth-of-type(1) {
+    background: rgba(40, 36, 255, 0.63);
+    box-shadow: rgb(34, 4, 34) 0px 5px 8px 0px;
+}
+
+#treeWrapper {
+    background: #ddfff3;
+    grid-area: 1/1/8/13;
+    margin: 0;
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.tree-datum {
+    padding: 2rem;
+    background: (0, 123, 255, 0.1);
+}
+
+.tree-label {
+    display: inline;
+}

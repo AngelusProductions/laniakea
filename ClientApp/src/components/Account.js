@@ -22,7 +22,9 @@ class Account extends Component {
 
     onLogInClick(e) {
         e.preventDefault()
-        this.props.attemptLogIn(this.state.username, this.state.password)
+        if (this.props.currentUser != null) {
+            this.props.attemptLogIn(this.state.username, this.state.password)
+        }
     }
 
     render() {

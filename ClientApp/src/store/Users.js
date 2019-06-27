@@ -52,7 +52,6 @@ export const actionCreators = {
             method: 'POST', body: JSON.stringify(data)
         })
         const response = await request.json()
-        debugger
         response.ok ? dispatch({ type: logInSuccessType, response })
                     : dispatch({ type: logInFailureType, response })
     }

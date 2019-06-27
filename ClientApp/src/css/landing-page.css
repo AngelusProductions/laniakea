@@ -1,14 +1,19 @@
 ﻿
-.landing-page {
+#landingPageWrapper {
+    grid-area: 1/4/12/13;
     text-align: center;
+    border: solid 1rem white;
+    border-radius: 2rem;
+    background: linear-gradient(white, 16%, aliceblue, 50%, white);
 }
 
 #laniakeaBackground {
     width: 26rem;
+    margin: 3rem 0 3rem 0;
 }
 
 #laniakeaTitle {
-    font-size: 10rem;
+    font-size: 9rem;
     color: rgba(0, 123, 255, 0.5);
 }
 

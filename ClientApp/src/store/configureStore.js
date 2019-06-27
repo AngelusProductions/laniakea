@@ -2,17 +2,20 @@
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 import thunk from 'redux-thunk'
 
 import * as Studies from './Studies'
 import * as Users from './Users'
-import * as Queries from './Queries'
+import * as Searches from './Searches'
 
 export default function configureStore(history, initialState) {
     const reducers = {
         studies: Studies.reducer,
         users: Users.reducer,
-        queries: Queries.reducer
+        searches: Searches.reducer
     }
 
     const middleware = [
@@ -27,9 +30,10 @@ export default function configureStore(history, initialState) {
         routing: routerReducer
     })
 
-    return createStore(
-        rootReducer,
-        initialState,
-        composeWithDevTools(applyMiddleware(...middleware), ...enhancers)
-    )
+    const persistConfig = { key: 'root', storage }
+    const persistedReducer = persistReducer(persistConfig, rootReducer)
+    const store = createStore(persistedReducer, initialState, composeWithDevTools(applyMiddleware(...middleware), ...enhancers));
+    const persistor = persistStore(store);
+
+    return { store, persistor }
 }

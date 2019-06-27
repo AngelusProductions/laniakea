@@ -1,0 +1,12 @@
+﻿#sidebarWrapper {
+    /*background: rgba(0, 255, 255, 0.09);*/
+    grid-area: 1/1/12/4;
+
+    display: grid;
+    grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+}
+
+#activityWrapper {
+    background: #feffde;
+    grid-area: 8/1/13/13;
+}

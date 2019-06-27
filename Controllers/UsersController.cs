@@ -45,7 +45,7 @@ namespace Laniakea.Controllers
                        user.UserName          == json["Username"].ToString() 
                     && user.TemporaryPassword == json["Password"].ToString()
                 );
-                _currentUser = match ?? _currentUser;
+                _currentUser = match ?? new NessUser();
                 return Json(_currentUser);
             }
         }

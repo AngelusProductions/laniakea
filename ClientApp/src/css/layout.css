@@ -1,0 +1,16 @@
+﻿#layoutGrid {
+    display: grid;
+    grid-template: repeat(9, 1fr) / repeat(12, 1fr);
+}
+
+#pageWrapper {
+    grid-area: 2/1/10/13;
+
+    display: grid;
+    grid-template: repeat(12, 1fr) / repeat(12, 1fr);
+}
+
+#footerWrapper {
+    background: rgba(190, 255, 255, 0.43);
+    grid-area: 13/1/12/13;
+}

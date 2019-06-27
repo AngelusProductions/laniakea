@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import { PlusButton, CloseButton } from 'react-svg-buttons'
-import { actionCreators } from '../store/Queries'
-import '../css/master-query.css'
+import { actionCreators } from '../../store/Searches'
+import '../../css/searches.css'
 
 class QueryComposer extends Component {
     constructor(props) {
@@ -79,6 +79,6 @@ class QueryComposer extends Component {
 }
 
 export default withRouter(connect(
-    state => state.queries,
+    state => state.searches,
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(QueryComposer))
