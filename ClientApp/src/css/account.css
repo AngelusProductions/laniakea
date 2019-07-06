@@ -5,6 +5,60 @@
     margin: 0.5rem;
 }
 
+#userInfoWrapper {
+    display: grid;
+    /*grid-template: repeat(3, 1fr)/ 1fr;*/
+    margin: auto;
+}
+
+#userPic {
+    grid-area: 3/2/3/3;
+    width: auto;
+    height: 5rem;
+    border-radius: 2rem;
+    border: solid 0.15rem #23478e2e;
+    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+}
+
+#userName {
+    grid-area: 3/2/3/3;
+    color: white;
+    text-shadow: 0.1rem 0.1rem 0.13rem black;
+}
+
+#editCrayon {
+    grid-area: 3/3/3/3;
+    width: 2rem;
+    margin-top: 3rem;
+}
+#editCrayon:hover {
+    filter: hue-rotate(90deg);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#editCrayon:active {
+    transform: scale(0.9);
+}
+
+.log-hide {
+    margin-top: 1rem;
+    background-color: aliceblue;
+    border-radius: 0.7rem;
+    border: solid 0.15rem #23478e2e;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+}
+    .log-hide:hover {
+        cursor: pointer;
+    }
+    .log-hide:active {
+        transform: scale(0.9);
+    }
+
+#logInForms > input {
+    margin: 0.7rem;
+}
+
 /* STRUCTURE */
 
 .wrapper {
@@ -15,6 +69,8 @@
     width: 100%;
     /*min-height: 100%;*/
     padding: 20px;
+    position: absolute;
+    z-index: 1;
 }
 
 #formContent {
@@ -27,8 +83,7 @@
     position: relative;
     /*padding: 1rem;*/
     margin-top: 2rem;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 6px 4px 0 rgba(0,0,0,0.3);
     text-align: center;
 }
 
@@ -54,7 +109,7 @@ input[type=button], input[type=submit], input[type=reset] {
     text-transform: uppercase;
     font-size: 13px;
     -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 5px 0px 0 rgba(95,186,233,0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 5px 20px 40px 20px;
@@ -84,7 +139,6 @@ input[type=text] {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin: .7rem;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;

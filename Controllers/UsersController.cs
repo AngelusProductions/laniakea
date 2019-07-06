@@ -31,8 +31,15 @@ namespace Laniakea.Controllers
         [HttpGet("[action]")]
         public JsonResult GetCurrentUser()
         {
-            if (_currentUser.Id == 0) _currentUser = _users.Find((e) => e.Id == 2);
+            if (_currentUser.UserName == null) return null;
             return Json(_currentUser);
+        }
+
+
+        [HttpGet("[action]")]
+        public void LogOut()
+        {
+            _currentUser = null;
         }
 
         [HttpPost("[action]")]
@@ -45,7 +52,8 @@ namespace Laniakea.Controllers
                        user.UserName          == json["Username"].ToString() 
                     && user.TemporaryPassword == json["Password"].ToString()
                 );
-                _currentUser = match ?? new NessUser();
+                if (match == null) return null;
+                _currentUser = match;
                 return Json(_currentUser);
             }
         }

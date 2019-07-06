@@ -16,8 +16,8 @@ class ContentContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.requestStudy(this.props.currentStudyId)
-        this.props.requestStudyComponents(this.props.currentStudyId)
+        this.props.requestStudy(this.props.state.studies.currentStudyId)
+        this.props.requestStudyComponents(this.props.state.studies.currentStudyId)
     }
 
     renderTabContent(t) {
@@ -34,7 +34,7 @@ class ContentContainer extends Component {
             <StudyTabs.Auto />
         ]
         let i
-        !t ? i = this.props.currentStudyTab : i = t
+        !t ? i = this.props.state.studies.currentStudyTab : i = t
         return components[i]
     }
 
@@ -57,6 +57,9 @@ class ContentContainer extends Component {
 }
 
 export default withRouter(connect(
-    state => state.studies,
+    state => {
+        const { studies, users } = state
+        return { state: { studies, users } }
+    },
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(ContentContainer))

@@ -1,14 +1,12 @@
 ﻿import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 
-import QueryComposer from './QueryComposer'
-import AdvancedSearch from './AdvancedSearch'
 import { actionCreators } from '../../store/Searches'
 import '../../css/searches.css'
 
-class QuickSearch extends Component {
+class GlobalSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -26,21 +24,20 @@ class QuickSearch extends Component {
     onAdvancedSearchClick() { }
 
     render() {
-        const queryComposer = this.state.showSearchComposer ? <QueryComposer /> : ""
         return (
-            <div id="quickSearchWrapper">
+            <div id="globalSearchWrapper">
                 <input
                     type="text"
-                    id="quickSearchField"
-                    name="quickSearchField"
-                    placeholder="quick search"
+                    id="globalSearchField"
+                    name="globalSearchField"
+                    placeholder="global search"
                     onChange={this.onFieldChange.bind(this)}
                     onSubmit={this.onFieldSubmit.bind(this)}
                 />
                 <button
                     type = "submit"
-                    id = "quickSearchButton"
-                    name="quickSearchButton"
+                    id = "globalSearchButton"
+                    name="globalSearchButton"
                     onClick={this.onFieldSubmit.bind(this)}
                 >go</button>
             </div>
@@ -51,14 +48,4 @@ class QuickSearch extends Component {
 export default withRouter(connect(
     state => state.searches,
     dispatch => bindActionCreators(actionCreators, dispatch)
-)(QuickSearch))
-
-    //< div id = "toolbarQueryComposerLink" onClick = { this.onComposerClick.bind(this) } > query composer</div >
-
-
-//    < button
-//type = "submit"
-//id = "quickSearchButton"
-//name = "quickSearchButton"
-//onClick = { this.onFieldSubmit.bind(this) }
-//    > quick search</button >
+)(GlobalSearch))

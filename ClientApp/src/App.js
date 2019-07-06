@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import Layout from './containers/Layout'
 export default () => (
@@ -7,7 +7,3 @@ export default () => (
         <Layout />
     </Router>
 )
-
-    //< Switch >
-    //<Redirect exact from="/" to="/home" />
-    //</Switch >

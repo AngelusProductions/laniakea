@@ -1,0 +1,47 @@
+﻿
+#aboutWrapper {
+    text-align: center;
+    height: 100%;
+    display: grid;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+}
+
+#aboutLogoWrapper {
+    grid-area: 1/1/1/4;
+    border-bottom: 0.6rem solid rgba(0, 123, 255, 0.25);
+    width: 100%;
+    margin: 0 auto;
+    background: aliceblue;
+    box-shadow: 0.3rem 0rem 0.3rem;
+}
+
+#aboutLogo {
+    grid-area: 1/1/1/4;
+    border-bottom: solid 1rem black;
+    width: 70%;
+    border-radius: 2rem;
+    min-height: 55%;
+    max-height: 11rem;
+    max-width: 11rem;
+    border: solid 0.15rem #23478e2e;
+    box-shadow: 0rem 0.2rem 0.1rem #616161, -0.9rem -0.4rem 0.5rem white, 0.9rem 0.4rem 0.5rem white;
+    padding: 1rem;
+    margin: auto;
+    background: white;
+}
+
+#studyShowDetails {
+    grid-area: 2/1/4/4;
+    text-align: left;
+}
+
+.study-detail-label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.study-detail-datum {
+    font-size: 0.8rem;
+    margin: auto;
+}

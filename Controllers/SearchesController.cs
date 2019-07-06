@@ -25,20 +25,13 @@ namespace Laniakea.Controllers
                 searchField = $"{searchField.Substring(0, 1).ToUpper()}{searchField.Substring(1)}";
                 searchDict.Add(searchField, property.Value.ToString());
             }
+            var study = NEFormValidationObject.Fetcher.GetFromId<NEFormValidationSystem.Study>(i);
+            var studyComponent = NEFormValidationObject.Fetcher.GetFromId<NEFormValidationSystem.StudyComponent>(j);
 
-			var study = NEFormValidationObject.Fetcher.GetFromId<NEFormValidationSystem.Study>(i);
-			var studyComponent = NEFormValidationObject.Fetcher.GetFromId<NEFormValidationSystem.StudyComponent>(j);
-
-			var dt = NEValidationEDMX.Search.SearchResult(study.Server, study.DatabaseName, studyComponent.Guid, searchDict);
-			var json =  Json(DataTableToJSONWithJSONNet(dt));
-			return json;
+            var dt = NEValidationEDMX.Search.SearchResult(study.Server, study.DatabaseName, studyComponent.Guid, searchDict);
+            var json = Json(JsonConvert.SerializeObject(dt));
+            return json;
         }
 
-		public string DataTableToJSONWithJSONNet(DataTable table)
-		{
-			string JSONString = string.Empty;
-			JSONString = JsonConvert.SerializeObject(table);
-			return JSONString;
-		}
-	}
+    }
 }
