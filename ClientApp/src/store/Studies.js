@@ -49,7 +49,7 @@ export const actionCreators = {
         dispatch({ type: receiveStudyComponentsType, studyComponentsList })
     },
     
-    setCurrentStudy: (id) => async (dispatch) => {
+	setCurrentStudy: (id) => async (dispatch) => {
         dispatch({ type: setCurrentStudyType, id })
     },
 
