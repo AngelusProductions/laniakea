@@ -1,5 +1,5 @@
 ﻿
-#quickSearchWrapper {
+#globalSearchWrapper {
     grid-area: 1/4/1/8;
 
     display: grid;
@@ -10,8 +10,8 @@
      grid-area: 1/4/12/13;
 }
 
-#quickSearchField {
-    grid-area: 2/1/2/2;
+#globalSearchField {
+    grid-area: 3/1/3/2;
     margin-left: 1rem;
     text-align: center;
     border-radius: 2rem;
@@ -27,8 +27,8 @@
 
 
 
-#quickSearchButton {
-    grid-area: 2/4/2/4;
+#globalSearchButton {
+    grid-area: 3/4/3/4;
     font-size: 0.9rem;
     background: white;
     color: #212529;
@@ -38,7 +38,7 @@
     border: solid 0.05rem #23478e2e;
     box-shadow: 0rem 0.2rem 0.1rem #616161;
 }
-    #quickSearchButton:active {
+    #globalSearchButton:active {
         background: rgba(200, 200, 200);
         color: white;
         height: 2.2rem;

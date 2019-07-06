@@ -10,12 +10,16 @@ import thunk from 'redux-thunk'
 import * as Studies from './Studies'
 import * as Users from './Users'
 import * as Searches from './Searches'
+import * as SubTabs from './SubTabs'
+import * as Exports from './Exports'
 
 export default function configureStore(history, initialState) {
     const reducers = {
         studies: Studies.reducer,
         users: Users.reducer,
-        searches: Searches.reducer
+        searches: Searches.reducer,
+        subTabs: SubTabs.reducer,
+        exports: Exports.reducer
     }
 
     const middleware = [

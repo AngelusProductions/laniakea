@@ -4,10 +4,41 @@
     grid-template: repeat(6, 1fr)/repeat(6, 1fr);
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
-#dataSearchWrapper {
+#dataSubTabMenu {
+    grid-area: 1/1/2/7;
+    margin-top: 0.4rem;
+    text-align: center;
+}
+
+.data-sub-tab-header {
+    text-align: center;
+    padding: 0.4rem 0.6rem;
+    background: white;
+    border-radius: 0.4rem;
+    display: inline;
+}
+    .data-sub-tab-header:hover {
+        color: blueviolet;
+        cursor: pointer;
+    }
+    .data-sub-tab-header:active {
+        transform: scale(0.9);
+    }
+
+.selected-sub-tab {
+    background: blueviolet;
+    color: white;
+}
+    .selected-sub-tab:hover {
+            color: white;
+        }
+
+#quickSearchWrapper {
     grid-area: 1/1/1/7;
+    margin-top: 1rem;
     text-align: center;
 }
 
@@ -29,8 +60,8 @@
     padding: 0.2rem;
 }
 
-#dataSearchFieldsWrapper {
-    grid-area: 1/1/7/7;
+#quickSearchFieldsWrapper {
+    grid-area: 2/1/7/7;
 }
 
 .data-search-input {
@@ -39,19 +70,41 @@
     margin-left: 1%;
 }
 
-#dataSearchButton {
-    margin-top: 3rem;
+#quickSearchButton {
+    margin: 1rem 0;
     border-radius: 1rem;
-    padding: 0.3rem 3rem;
+    padding: 0.9rem 3rem;
     background: #67a3fff0;
     color: white;
     border: solid 0.1rem aliceblue;
     box-shadow: 0rem 0.1rem 0.1rem #61616191;
 }
 
-    #dataSearchButton:active {
+    #quickSearchButton:active {
         background: #67a3ffbd;
         box-shadow: none;
         transform: scale(0.9);
         box-shadow: 0rem 0 0.2rem #61616191;
     }
+
+#dataResultsWrapper {
+    grid-area: 2/1/7/7;
+}
+
+.react-grid-Cell {
+    user-select: all;
+}
+
+.form-control {
+    height: calc(1em + 0.55rem + 2px);
+}
+
+#loadingGif {
+    position: fixed;
+    z-index: 2;
+    width: 30rem;
+    border-radius: 0.6rem;
+    left: 53%;
+    top: 50%;
+}
+

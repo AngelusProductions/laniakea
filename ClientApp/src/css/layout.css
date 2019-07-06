@@ -11,6 +11,8 @@
 }
 
 #footerWrapper {
-    background: rgba(190, 255, 255, 0.43);
+    background: rgba(103, 164, 255, 0.31);
     grid-area: 13/1/12/13;
+    box-shadow: 0 0 0.1rem #000000;
+    border-bottom: 0.5rem #67a3ff69 solid;
 }

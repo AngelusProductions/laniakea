@@ -9,6 +9,7 @@ import '../css/global.css'
 
 import Topbar from './Topbar'
 import Sidebar from './Sidebar'
+import Footer from '../components/Footer'
 import LandingPage from '../components/LandingPage'
 import ContentContainer from './ContentContainer'
 
@@ -23,6 +24,7 @@ class Layout extends Component {
         const page = (function(path) {
             switch (path) {
                 case '':
+                default:
                     return <LandingPage />
                 case 'studies':
                     return <ContentContainer />
@@ -34,9 +36,7 @@ class Layout extends Component {
                 <div id="pageWrapper">
                     <Sidebar />
                     {page}
-                    <div id="footerWrapper">
-                        footer
-                    </div>
+                    <Footer />
                 </div>
             </div>
         )
@@ -45,6 +45,9 @@ class Layout extends Component {
 
 
 export default withRouter(connect(
-    state => state.studies,
+    state => {
+        const { studies, users } = state
+        return { state: { studies, users } }
+    },
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(Layout))

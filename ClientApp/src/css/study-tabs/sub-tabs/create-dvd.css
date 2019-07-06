@@ -1,0 +1,147 @@
+﻿
+#createDVDPageWrapper {
+    grid-area: 2/1/7/7;
+    text-align: center;
+    display: grid;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+    color: #537dbd;
+}
+
+#dvdIcon {
+    grid-area: 1/2/1/2;
+    width: 11rem;
+    margin: auto;
+    border: solid 0.15rem #23478e2e;
+    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    padding: 0.8rem;
+    border-radius: 3rem;
+}
+
+#createDVDPageWrapper > label,
+#createDVDPageWrapper > h1 {
+    margin: auto;
+}
+
+#withPHICheckbox,
+#withTriggersCheckbox {
+    border: solid 0.15rem #23478e2e;
+    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    padding: 0.3rem;
+    border-radius: 1rem;
+}
+
+#withPHIHeader {
+    grid-area: 1/1/1/1;
+}
+
+#withPHICheckbox {
+    grid-area: 2/1/2/1;
+}
+
+#withTriggersHeader {
+    grid-area: 1/3/1/3;
+}
+
+#withTriggersCheckbox {
+    grid-area: 2/3/2/3;
+}
+
+#createDVDButton {
+    grid-area: 3/1/3/4;
+    margin: 0 auto;
+    /*width: 33%;*/
+    height: 92%;
+    border-radius: 3rem;
+    color: white;
+    font-size: 7rem;
+    letter-spacing: -0.5rem;
+    padding: 0.3rem 3rem;
+    background: #67a3fff0;
+    border: solid 0.1rem aliceblue;
+    -webkit-box-shadow: 0rem 0.1rem 0.1rem #61616191;
+    box-shadow: 0rem 0.1rem 0.1rem #61616191;
+}
+    #createDVDButton:active {
+        background: #67a3ffbd;
+        box-shadow: none;
+        transform: scale(0.9);
+        box-shadow: 0rem 0 0.2rem #61616191;
+    }
+
+.create-dvd-checkbox {
+    margin: auto;
+}
+
+/* Styles for hiding the native checkbox */
+input[type='checkbox'].check-custom {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+    /* Styles for the basic appearance of the toggle switch */
+    input[type='checkbox'].check-custom.toggle-switch ~ .check-toggle {
+        width: 6rem;
+        height: 3.3rem;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+        /* Common styles for the ::before and ::after pseudo-elements of the toggle switch */
+        input[type='checkbox'].check-custom.toggle-switch ~ .check-toggle::before,
+        input[type='checkbox'].check-custom.toggle-switch ~ .check-toggle::after {
+            content: '';
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        /* Styles for the ::before pseudo-element (the outer frame) of the toggle switch */
+        input[type='checkbox'].check-custom.toggle-switch ~ .check-toggle::before {
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+            background: #dbdbdb;
+        }
+
+        /* Styles for the ::after pseudo-element (the inner slider) of the toggle switch */
+        input[type='checkbox'].check-custom.toggle-switch ~ .check-toggle::after {
+            width: 3rem;
+            height: 3rem;
+            margin: 0.125rem;
+            border-radius: 50%;
+            background: #ffffff;
+        }
+
+    /* Styles for the ::before pseudo-element of the toggle switch in hover state */
+    input[type='checkbox'].check-custom.toggle-switch:hover ~ .check-toggle::before {
+        background: #c4c4c4;
+    }
+
+    /* Styles for the ::before pseudo-element of the toggle switch in focus state */
+    input[type='checkbox'].check-custom.toggle-switch:focus ~ .check-toggle::before {
+        box-shadow: 0 0 0 2px rgba(23, 133, 255, 0.5);
+    }
+
+    /* Styles for the ::before pseudo-element of the toggle switch in both focus and checked or enabled state */
+    input[type='checkbox'].check-custom.toggle-switch:focus:checked ~ .check-toggle::before {
+        box-shadow: 0 0 0 2px rgba(97, 191, 158, 0.5);
+    }
+
+    /* Styles for the ::before pseudo-element of the toggle switch in checked or enabled state */
+    input[type='checkbox'].check-custom.toggle-switch:checked ~ .check-toggle::before {
+        background: #67a4ff;
+    }
+
+    /* Styles for the ::after pseudo-element of the toggle switch in checked or enabled state */
+    input[type='checkbox'].check-custom.toggle-switch:checked ~ .check-toggle::after {
+        left: auto;
+        right: 0;
+    }

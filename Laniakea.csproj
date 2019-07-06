@@ -24,7 +24,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NEFormValidationSystem\NEFormValidationSystem.csproj" />
-    <ProjectReference Include="..\NESS\NESS.csproj" />
+    <ProjectReference Include="..\NESS\NESS\NESS.csproj" />
+    <ProjectReference Include="..\NEValidationEDMX\NEValidationEDMX\NEValidationEDMX.csproj" />
   </ItemGroup>
 
   <ItemGroup>

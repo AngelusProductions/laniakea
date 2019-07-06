@@ -7,11 +7,11 @@ import { actionCreators } from '../store/Users'
 
 import '../css/account.css'
 
-class Account extends Component {
+class LogIn extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: "",       
+            username: "",
             password: ""
         }
     }
@@ -22,16 +22,14 @@ class Account extends Component {
 
     onLogInClick(e) {
         e.preventDefault()
-        if (this.props.currentUser != null) {
             this.props.attemptLogIn(this.state.username, this.state.password)
-        }
     }
 
     render() {
-
         return (
-            <div className = "wrapper fadeInDown" >
+            <div className="wrapper fadeInDown" >
                 <div id="formContent">
+
                     <div className="fadeIn first">
                         <img src="https://s3.amazonaws.com/ness-production/NESSLogo.gif" id="icon" alt="ness" />
                     </div>
@@ -46,8 +44,9 @@ class Account extends Component {
                         <a className="underlineHover" href="/account">Forgot Password?</a>
                     </div>
 
-                </div> 
-            </div> 
+                    <button className="log-hide" onClick={this.props.logHide}>x</button>
+                </div>
+            </div>
         )
     }
 }
@@ -55,4 +54,4 @@ class Account extends Component {
 export default withRouter(connect(
     state => state.users,
     dispatch => bindActionCreators(actionCreators, dispatch)
-)(Account))
+)(LogIn))

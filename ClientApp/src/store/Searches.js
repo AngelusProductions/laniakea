@@ -1,15 +1,16 @@
 ﻿const initialState = {
     masterSearch: '',
-    isLoading: false
+    isLoading: false,
+    results: ""
 }
 
 const masterSearchRequestType = 'REQUEST_MASTER_SEARCH'
 const masterSearchResponseType = 'RECEIVE_MASTER_SEARCH'
 
 export const actionCreators = {
-    masterSearch: search => async dispatch => {
+    masterSearch: (search, studyId, studyComponentId) => async dispatch => {
         dispatch({ type: masterSearchRequestType })
-        const url = `/api/searches/MasterSearch/${JSON.stringify(search)}`
+        const url = `/api/searches/MasterSearch/${studyId}/${studyComponentId}/${JSON.stringify(search)}`
         const response = await fetch(url,
             {
                 method: 'GET',
@@ -19,8 +20,8 @@ export const actionCreators = {
                 }
             }
         )
-        //debugger
-        const results = await response.json()
+        const resultsString = await response.json()
+        const results = JSON.parse(resultsString)
         dispatch({ type: masterSearchResponseType, results })
     }
 }
@@ -36,8 +37,8 @@ export const reducer = (state, action) => {
         case masterSearchResponseType:
             return {
                 ...state,
-                results: action.results,
-                isLoading: false
+                isLoading: false,
+                results: action.results
             }
         default:
             return state

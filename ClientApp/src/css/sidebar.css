@@ -7,6 +7,20 @@
 }
 
 #activityWrapper {
-    background: #feffde;
+    background: #e8f2ff;
     grid-area: 8/1/13/13;
+    box-shadow: inset 0 0 1rem #000000;
+}
+
+#spinningIcon {
+    width: 20%;
+    filter: hue-rotate(180deg);
+}
+
+#recentActivityTitle {
+    margin: auto;
+    text-align: center;
+    display: inline;
+    font-size: 0.8rem;
+    color: #67a4ff;
 }

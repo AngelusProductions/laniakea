@@ -1,13 +1,7 @@
-﻿import AdvancedResults from './AdvancedResults'
-import AdvancedSearch from './AdvancedSearch'
-import QueryComposer from './QueryComposer'
-import QuickResults from './QuickResults'
-import QuickSearch from './QuickSearch'
+﻿import QueryComposer from './QueryComposer'
+import GlobalSearch from './GlobalSearch'
 
 export {
-    AdvancedResults,
-    AdvancedSearch,
     QueryComposer,
-    QuickResults,
-    QuickSearch
+    GlobalSearch
 }

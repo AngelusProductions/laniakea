@@ -1,7 +1,8 @@
 ﻿#topBarWrapper {
-    background: linear-gradient(bottom, white, aliceblue);
+    background: linear-gradient(to top, white, aliceblue);
     border-bottom: solid 0.5rem white;
     grid-area: 1/1/2/13;
+    max-height: 11rem;
 
     display: grid;
     grid-template: 1fr / repeat(12, 1fr);
@@ -13,21 +14,21 @@
 
 #nessLogo {
     width: 100%;
-    margin: 0.95rem auto;
     filter: brightness(2.3) hue-rotate(7deg);
+    padding: 2rem 0 0 6%;
 }
 
 #organizersWrapper {
-    background-color: #22ffe030;
+    /*background-color: #22ffe030;*/
     grid-area: 1/8/1/11;
 }
 
 #userInfoWrapper {
-    background-color: #ffaaaa4f;
+    /*background-color: #ffaaaa4f;*/
     grid-area: 1/11/1/12;
 }
 
 #burgerMenuWrapper {
-    background-color: #ffec078a;
+    /*background-color: #ffec078a;*/
     grid-area: 1/12/1/13;
 }
