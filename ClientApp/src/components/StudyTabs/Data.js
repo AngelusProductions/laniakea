@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
+import { withRouter } from 'react-router-dom'
 
 import { actionCreators } from '../../store/SubTabs'
 import * as SubTabs from './SubTabs/index'
@@ -53,7 +53,6 @@ class Data extends Component {
         )
     }
 }
-
 
 export default withRouter(connect(
     state => state.subTabs,

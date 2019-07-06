@@ -34,7 +34,7 @@ class LogIn extends Component {
                         <img src="https://s3.amazonaws.com/ness-production/NESSLogo.gif" id="icon" alt="ness" />
                     </div>
 
-                    <form>
+                    <form id="logInForms">
                         <input onChange={this.onUsernameChange.bind(this)} type="text" id="login" className="fadeIn second" name="login" placeholder="username" />
                         <input onChange={this.onPasswordChange.bind(this)} type="text" id="password" className="fadeIn third" name="login" placeholder="password" />
                         <input onClick={this.onLogInClick.bind(this)} type="submit" className="fadeIn fourth" value="Log In" />

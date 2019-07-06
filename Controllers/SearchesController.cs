@@ -25,7 +25,6 @@ namespace Laniakea.Controllers
                 searchField = $"{searchField.Substring(0, 1).ToUpper()}{searchField.Substring(1)}";
                 searchDict.Add(searchField, property.Value.ToString());
             }
-
             var study = NEFormValidationObject.Fetcher.GetFromId<NEFormValidationSystem.Study>(i);
             var studyComponent = NEFormValidationObject.Fetcher.GetFromId<NEFormValidationSystem.StudyComponent>(j);
 
@@ -34,9 +33,5 @@ namespace Laniakea.Controllers
             return json;
         }
 
-        //public string DataTableToJSONWithJSONNet(DataTable table)
-        //{
-        //    return JsonConvert.SerializeObject(table);
-        //}
     }
 }

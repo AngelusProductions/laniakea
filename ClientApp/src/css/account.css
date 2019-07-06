@@ -55,6 +55,9 @@
         transform: scale(0.9);
     }
 
+#logInForms > input {
+    margin: 0.7rem;
+}
 
 /* STRUCTURE */
 
