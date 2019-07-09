@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Laniakea.Controllers
 {
     [Route("api/[controller]")]
-    public class ExportsController : Controller
+    public class IOController : Controller
     {
         [HttpGet("[action]/{studyId}/{withPHI}/{withTriggers}")]
         public JsonResult CreateDVD(long studyId, bool withPHI, bool withTriggers)

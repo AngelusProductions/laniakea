@@ -45,5 +45,45 @@ namespace Laniakea.Controllers
         {
             return NEValidation.Subjects.Find((s) => s.Id == id);
         }
+
+        [HttpGet("[action]/{subjectId}")]
+        public List<Visit> GetVisits(long subjectId)
+        {
+            var subjectVisits = NEValidation.GetSubjectVisits($"SubjectId = {subjectId}");
+            var visitList = new List<Visit>();
+            foreach(SubjectVisit subjectVisit in subjectVisits)
+                visitList.Add(NEValidation.Visits.Find((v) => v.Id == subjectVisit.VisitId));
+            return visitList;
+        }
+
+        [HttpGet("[action]/{visitId}")]
+        public Visit GetVisit(long visitId)
+        {
+            return NEValidation.Visits.Find((v) => v.Id == visitId);
+        }
+
+        [HttpGet("[action]/{visitId}")]
+        public List<Form> GetForms(long visitId)
+        {
+            var visitForms = NEValidation.GetVisitForms($"VisitId = {visitId}");
+            var formList = new List<Form>();
+            foreach(VisitForm visitForm in visitForms)
+                formList.Add(NEValidation.Forms.Find((v) => v.Id == visitForm.FormId));
+            return formList;
+        }
+
+        [HttpGet("[action]/{formId}")]
+        public Form GetForm(long formId)
+        {
+            return NEValidation.Forms.Find((f) => f.Id == formId);
+        }
+
+        [HttpGet("[action]/{subjectId}/{visitId}/{formId}")]
+        public JsonResult GetSubjectVisitForm(long subjectId, long visitId, long formId)
+        {
+            var visitForm = NEValidation.VisitForms.Find( vf => vf.VisitId == visitId);
+            var subjectVisitForms = NEValidation.SubjectVisitForms.Find( svf => svf.VisitFormId == visitForm.Id);
+            return Json(subjectVisitForms);
+        }
     }
 }

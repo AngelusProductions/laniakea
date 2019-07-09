@@ -1,5 +1,5 @@
 ﻿#contentContainerWrapper {
-    grid-area: 1/4/12/13;
+    grid-area: 1/3/12/13;
 
     display: grid;
     grid-template: repeat(12, 1fr)/repeat(12, 1fr);

@@ -18,12 +18,8 @@ class Hamburger extends Component {
         const activeClass = this.state.isActive ? ' is-active' : ''
         return(
                 <button
-                    onClick={this.onHamburgerClick.bind(this)}
-                    className={"hamburger hamburger--spin-r" + activeClass}
-                    type="button">
-                    <span className="hamburger-box">
-                        <span className="hamburger-inner"></span>
-                        </span>
+                    onClick={this.onHamburgerClick.bind(this)} className={"hamburger hamburger--spin-r" + activeClass} type="button">
+                    <span className="hamburger-box"><span className="hamburger-inner"></span></span>
                 </button>
         )
     }

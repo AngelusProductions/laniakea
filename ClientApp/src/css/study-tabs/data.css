@@ -58,6 +58,7 @@
     border-radius: 1.4rem;
     box-shadow: 0rem 0.2rem 0.1rem #616161;
     padding: 0.2rem;
+    filter: hue-rotate(14deg);
 }
 
 #quickSearchFieldsWrapper {
