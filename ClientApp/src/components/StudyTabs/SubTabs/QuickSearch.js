@@ -109,7 +109,7 @@ class QuickSearch extends Component {
         const loadingGif = this.props.state.searches.isLoading ? <img src="https://ness-production.s3.amazonaws.com/NESSLogo.gif" id="loadingGif" alt="ness" /> : ''
         return (
             <div id="quickSearchWrapper">
-                <img id="quickSearchIcon" src="https://ness-production.s3.amazonaws.com/searchIcon.png" alt="master-search" />
+                <img id="quickSearchIcon" src="https://ness-production.s3.amazonaws.com/quickSearchIcon.png" alt="master-search" />
                 <div id="quickSearchTitle">Quick search</div>
                 <div id="quickSearchFieldsWrapper">{this.renderSearchFields.bind(this)()}</div>
                 <button 

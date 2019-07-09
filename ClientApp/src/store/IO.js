@@ -10,7 +10,7 @@ export const actionCreators = {
 
     createDVD: (studyComponentId, includePHI, includeTriggers) => async (dispatch) => {
         dispatch({ type: createDVDRequestType })
-        const url = `/api/Exports/CreateDVD/${studyComponentId}/${includePHI}/${includeTriggers}`
+        const url = `/api/IO/CreateDVD/${studyComponentId}/${includePHI}/${includeTriggers}`
         const response = await fetch(url)
         const dvd = await response.json()
         dispatch({ type: createDVDResponseType, dvd })
@@ -23,13 +23,13 @@ export const reducer = (state, action) => {
         case createDVDRequestType:
             return {
                 ...state,
-                isLoading: false
+                isLoading: true
             }
         case createDVDResponseType:
             return {
                 ...state,
                 dvd: action.dvd,
-                isLoading: true
+                isLoading: false
             }
         default:
             return state

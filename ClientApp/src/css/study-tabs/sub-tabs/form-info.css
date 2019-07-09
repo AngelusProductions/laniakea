@@ -1,0 +1,16 @@
+﻿#formInfoContainer {
+    position: absolute;
+    z-index: 1;
+    width: 20rem;
+    height: 20rem;
+}
+
+#loadingGif {
+    position: fixed;
+    z-index: 2;
+    width: 30rem;
+    border-radius: 0.6rem;
+    left: 37%;
+    top: 50%;
+}
+

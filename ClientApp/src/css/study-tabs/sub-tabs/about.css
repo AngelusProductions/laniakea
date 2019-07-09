@@ -31,17 +31,18 @@
 }
 
 #studyShowDetails {
-    grid-area: 2/1/4/4;
+    margin-top: 2rem;
+    grid-area: 2/2/4/4;
     text-align: left;
 }
 
 .study-detail-label {
-    font-size: 0.7rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin: 1rem;
 }
 
 .study-detail-datum {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     margin: auto;
 }

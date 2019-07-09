@@ -4,7 +4,12 @@
     studyComponents: [],
     sites: [],
     subjects: [],
-    subject: [],
+    subject: {},
+    visits: [],
+    visit: {},
+    forms: [],
+    form: {},
+    subjectVisitForm: {},
     currentStudyId: 0,
     currentStudyTab: 0,
     isLoading: false
@@ -27,6 +32,21 @@ const receiveSubjectsType = 'RECEIVE_SUBJECTS'
 
 const requestSubjectType = 'REQUEST_SUBJECT'
 const receiveSubjectType = 'RECEIVE_SUBJECT'
+
+const requestVisitsType = 'REQUEST_VISITS'
+const receiveVisitsType = 'RECEIVE_VISITS'
+
+const requestVisitType = 'REQUEST_VISIT'
+const receiveVisitType = 'RECEIVE_VISIT'
+
+const requestFormsType = 'REQUEST_FORMS'
+const receiveFormsType = 'RECEIVE_FORMS'
+
+const requestFormType = 'REQUEST_FORM'
+const receiveFormType = 'RECEIVE_FORM'
+
+const requestSubjectVisitFormType = 'REQUEST_SUBJECT_VISIT_FORM'
+const receiveSubjectVisitFormType = 'RECEIVE_SUBJECT_VISIT_FORM'
 
 const requestCurrentStudyType = 'REQUEST_CURRENT_STUDY'
 const receiveCurrentStudyType = 'RECEIVE_CURRENT_STUDY'
@@ -83,6 +103,47 @@ export const actionCreators = {
         const response = await fetch(url)
         const subject = await response.json()
         dispatch({ type: receiveSubjectType, subject })
+    },
+
+    requestVisits: (subjectId) => async (dispatch) => {
+        dispatch({ type: requestVisitsType })
+        const url = `/api/Studies/GetVisits/${subjectId}`
+        const response = await fetch(url)
+        const visits = await response.json()
+        dispatch({ type: receiveVisitsType, visits })
+    },
+
+    requestVisit: (visitId) => async (dispatch) => {
+        dispatch({ type: requestVisitType })
+        const url = `/api/Studies/GetVisit/${visitId}`
+        const response = await fetch(url)
+        const visit = await response.json()
+        dispatch({ type: receiveVisitType, visit })
+    },
+
+    requestForms: (visitId) => async (dispatch) => {
+        dispatch({ type: requestFormsType })
+        const url = `/api/Studies/GetForms/${visitId}`
+        const response = await fetch(url)
+        const forms = await response.json()
+        dispatch({ type: receiveFormsType, forms })
+    },
+
+    requestForm: (formId) => async (dispatch) => {
+        dispatch({ type: requestFormType })
+        const url = `/api/Studies/GetForm/${formId}`
+        const response = await fetch(url)
+        const form = await response.json()
+        dispatch({ type: receiveFormType, form })
+    },
+
+    requestSubjectVisitForm: (subjectId, visitId, formId) => async (dispatch) => {
+        dispatch({ type: requestSubjectVisitFormType })
+        const url = `/api/Studies/GetSubjectVisitForm/${subjectId}/${visitId}/${formId}`
+        const response = await fetch(url)
+        const subjectVisitForm = await response.json()
+        debugger
+        dispatch({ type: receiveSubjectVisitFormType, subjectVisitForm })
     },
     
     setCurrentStudy: (studyId) => async (dispatch) => {
@@ -162,6 +223,61 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 subject: action.subject,
+                isLoading: false
+            }
+        case requestVisitsType:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case receiveVisitsType:
+            return {
+                ...state,
+                visits: action.visits,
+                isLoading: false
+            }
+        case requestVisitType:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case receiveVisitType:
+            return {
+                ...state,
+                visit: action.visit,
+                isLoading: false
+            }
+        case requestFormsType:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case receiveFormsType:
+            return {
+                ...state,
+                forms: action.forms,
+                isLoading: false
+            }
+        case requestFormType:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case receiveFormType:
+            return {
+                ...state,
+                form: action.form,
+                isLoading: false
+            }
+        case requestSubjectVisitFormType:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case receiveSubjectVisitFormType:
+            return {
+                ...state,
+                subjectVisitForm: action.subjectVisitForm,
                 isLoading: false
             }
         case requestCurrentStudyType:
