@@ -1,55 +1,48 @@
 ﻿
 #createDVDPageWrapper {
-    grid-area: 2/1/7/7;
+    grid-area: 1/1/7/7;
     text-align: center;
     display: grid;
-    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+    grid-template: repeat(4, 1fr)/repeat(4, 1fr);
     color: #537dbd;
 }
 
 #dvdIcon {
-    grid-area: 1/2/1/2;
-    width: 11rem;
-    margin: auto;
+    grid-area: 2/1/1/7;
+    width: 8rem;
+    margin: 3rem auto 0 auto;
     border: solid 0.15rem #23478e2e;
-    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    filter: hue-rotate(205deg);
     box-shadow: 0rem 0.2rem 0.1rem #616161;
     padding: 0.8rem;
-    border-radius: 3rem;
+    border-radius: 6rem;
 }
 
 #createDVDPageWrapper > label,
 #createDVDPageWrapper > h1 {
-    margin: auto;
+    margin: auto 1rem;
 }
 
-#withPHICheckbox,
-#withTriggersCheckbox {
-    border: solid 0.15rem #23478e2e;
-    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
-    box-shadow: 0rem 0.2rem 0.1rem #616161;
-    padding: 0.3rem;
-    border-radius: 1rem;
+.create-dvd-header {
+    font-size: 2.1rem;
+    background: white;
+    border: #a0a3ff solid 0.05rem;
+    border-radius: 1.1rem;
+    box-shadow: #d2eaff 0rem 0.6rem 0.1rem;
+    padding: 0.6rem;
 }
 
-#withPHIHeader {
-    grid-area: 1/1/1/1;
-}
-
-#withPHICheckbox {
-    grid-area: 2/1/2/1;
-}
-
-#withTriggersHeader {
-    grid-area: 1/3/1/3;
-}
-
-#withTriggersCheckbox {
-    grid-area: 2/3/2/3;
-}
+#withPHIHeader {           grid-area: 2/1/2/1; }
+#withPHICheckbox {         grid-area: 3/1/3/1; }
+#withoutPHIHeader {        grid-area: 2/2/2/2; }
+#withoutPHICheckbox {      grid-area: 3/2/3/2; }
+#withTriggersHeader {      grid-area: 2/3/2/3; }
+#withTriggersCheckbox {    grid-area: 3/3/3/3; }
+#withoutTriggersHeader {   grid-area: 2/4/2/4; }
+#withoutTriggersCheckbox { grid-area: 3/4/3/4; }
 
 #createDVDButton {
-    grid-area: 3/1/3/4;
+    grid-area: 4/1/4/5;
     margin: 0 auto;
     /*width: 33%;*/
     height: 92%;
@@ -144,4 +137,18 @@ input[type='checkbox'].check-custom {
     input[type='checkbox'].check-custom.toggle-switch:checked ~ .check-toggle::after {
         left: auto;
         right: 0;
+    }
+
+
+.create-dvd-checkbox {
+    border: solid 0.15rem #23478e2e;
+    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    padding: 0.3rem;
+    border-radius: 1rem;
+}
+    .create-dvd-checkbox:active, 
+    .create-dvd-checkbox:focus {
+        border: none;
+        outline: 0;
     }

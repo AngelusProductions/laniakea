@@ -1,0 +1,50 @@
+﻿#formsPageWrapper {
+    display:grid;
+    grid-template: repeat(4) / repeat(4);
+
+    overflow: scroll;
+    height: 100%;
+}
+
+#formsPageHeader {
+    grid-area: 1/1/2/1;
+    font-size: 4.1rem;
+    font-weight: bold;
+    margin: -0.4rem 8rem;
+    color: #870079;
+    padding: 5%;
+    text-shadow: #d2eaff 0 0.3rem 0;
+}
+
+#formsPageLogo {
+    grid-area: 1/1/5/5;
+    margin: 1rem 0 2rem 2rem;
+    width: 6rem;
+    background: white;
+    border: #a0a3ff solid 0.05rem;
+    border-radius: 1.1rem;
+    box-shadow: #d2eaff 0rem 0.6rem 0.1rem;
+    padding: 0.2rem;
+}
+
+#formsList {
+    grid-area: 8/1/8/6;
+    background: white;
+    border-top: solid 0.4rem #d2eaff;
+}
+
+.forms-page-form-name {
+    font-size: 0.95rem;
+    color: #cd00b8;
+    margin: 0.6rem 0 0 1.6rem;
+}
+
+    .forms-page-form-name:hover {
+        cursor: pointer;
+        filter: brightness(200%);
+    }
+    .forms-page-form-name:active {
+        transform: scaleY(0.85);
+    }
+
+
