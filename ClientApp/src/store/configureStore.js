@@ -11,7 +11,7 @@ import * as Studies from './Studies'
 import * as Users from './Users'
 import * as Searches from './Searches'
 import * as SubTabs from './SubTabs'
-import * as Exports from './Exports'
+import * as IO from './IO'
 
 export default function configureStore(history, initialState) {
     const reducers = {
@@ -19,7 +19,7 @@ export default function configureStore(history, initialState) {
         users: Users.reducer,
         searches: Searches.reducer,
         subTabs: SubTabs.reducer,
-        exports: Exports.reducer
+        io: IO.reducer
     }
 
     const middleware = [

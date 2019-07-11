@@ -19,6 +19,8 @@ class Layout extends Component {
         this.state = {}
     }
 
+    componentDidMount() { this.props.setIsLoading(false) }
+
     render() {
         const url = this.props.location.pathname.split('/')[1]
         const page = (function(path) {

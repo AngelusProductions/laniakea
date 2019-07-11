@@ -88,6 +88,30 @@
         box-shadow: 0rem 0 0.2rem #61616191;
     }
 
+#exportLogo {
+    width: 2.7rem;
+    float: right;
+    margin: 2.4rem auto 0.4rem auto;
+}
+
+.enabled {
+    cursor: pointer;
+}
+    .enabled:hover {
+        transform: scale(1.1);
+        box-shadow: 0rem 0.1rem 0.1rem #61616191;
+    }
+    .enabled:active {
+        transform: scale(0.9);
+    }
+.disabled {
+    filter: brightness(0%);
+}
+    .disabled:hover {
+        cursor: not-allowed;
+        filter: blur(2px) brightness(0%);
+    }
+
 #dataResultsWrapper {
     grid-area: 2/1/7/7;
 }

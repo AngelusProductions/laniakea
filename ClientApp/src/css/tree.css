@@ -20,3 +20,56 @@ div#treeWrapper > div > ul > li:nth-of-type(1) {
 .tree-label {
     display: inline;
 }
+
+#treeWrapper > div > input[type=search] {
+    font-size: 0.8rem;
+    font-weight: bolder;
+}
+
+#treeWrapper > div > ul > li {
+    padding: 0.25rem 0.1rem 0.15rem 0.4rem;
+    cursor: pointer;
+    color: white;
+    background: rgb(23, 158, 211);
+    border-bottom: none;
+    box-shadow: rgb(34, 34, 34) 0px 0px 1px 0px;
+    z-index: 999;
+    position: relative;
+
+}
+
+#treeWrapper > div > ul > li [aria-expanded="true"] {
+    background: white;
+    padding: 0.3rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#treeWrapper > div > ul {
+    font-size: 0.8rem;
+    color: #4876bb;
+}
+
+    #treeWrapper > div > ul > li:nth-child(1),
+    #treeWrapper > div > ul > li:nth-child(2),
+    #treeWrapper > div > ul > li:nth-child(3),
+    #treeWrapper > div > ul > li:nth-child(4),
+    #treeWrapper > div > ul > li:nth-child(5) {
+        font-size: 1.6vw !important;
+        padding: 0.25rem 0.4rem 0.15rem 0.5rem !important;
+        box-shadow: rgb(34, 34, 34, 0.05) -1px 1px 1px 0px !important;
+        border-bottom: 1px solid rgb(252, 252, 252) !important;
+        color: #4876bb !important;
+    }
+
+        #treeWrapper > div > ul > li:nth-child(1)[aria-pressed="true"],
+        #treeWrapper > div > ul > li:nth-child(2)[aria-pressed="true"],
+        #treeWrapper > div > ul > li:nth-child(3)[aria-pressed="true"],
+        #treeWrapper > div > ul > li:nth-child(4)[aria-pressed="true"],
+        #treeWrapper > div > ul > li:nth-child(5)[aria-pressed="true"] {
+            background: rgba(56, 136, 255, 0.76) !important;;
+            color: white !important;
+            box-shadow: white -0.1rem 0.1rem 0.1rem, white -0.1rem -0.1rem 0.1rem !important;
+        }
+
+#treeWrapper > div > input[type=search]::placeholder { opacity: 0; }
