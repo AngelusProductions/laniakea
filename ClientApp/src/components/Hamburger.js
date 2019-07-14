@@ -19,7 +19,7 @@ class Hamburger extends Component {
         return(
                 <button
                     onClick={this.onHamburgerClick.bind(this)} className={"hamburger hamburger--spin-r" + activeClass} type="button">
-                    <span className="hamburger-box"><span className="hamburger-inner"></span></span>
+                    <span className="hamburger-box"><span id="hamburgerId" className="hamburger-inner"></span></span>
                 </button>
         )
     }

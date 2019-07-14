@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom'
 
 import TreeViewMenu from 'react-simple-tree-menu'
 
-import { actionCreators } from '../store/Studies'
+import { actionCreators as studiesActions} from '../store/Studies'
+import { actionCreators as subTabsActions} from '../store/SubTabs'
 import '../css/tree.css'
 
 class Tree extends Component {
@@ -17,24 +18,25 @@ class Tree extends Component {
 
     componentDidMount() {
         if (this.props.location.pathname === '/') {
-            this.props.requestStudies()
+            this.props.actions.studiesActions.requestStudies()
         } else {
-            this.props.requestStudy(this.props.currentStudyId)
-            this.props.requestStudyComponents(this.props.currentStudyId)
+            this.props.actions.studiesActions.requestStudy(this.props.currentStudyId)
+            this.props.actions.studiesActions.requestStudyComponents(this.props.currentStudyId)
         }
     }
 
     onStudyClick(e) {
         const studyId = e.key.split('-')[1]
+        this.props.actions.subTabsActions.setSidebarShow(false)
         this.props.history.push(`/studies/${studyId}`)
-        this.props.setCurrentStudy(studyId)
+        this.props.actions.studiesActions.setCurrentStudy(studyId)
     }
 
     render() {
         let treeData
         const url = this.props.location.pathname;
         if (url === '/') {
-            treeData = this.props.studies.map(study => {
+            treeData = this.props.state.studies.studies.map(study => {
                 return (
                     {
                         key: `study-${study.id}`,
@@ -43,7 +45,7 @@ class Tree extends Component {
                 )
             })
         } else {
-            treeData = this.props.studyComponents.map(component => {
+            treeData = this.props.state.studies.studyComponents.map(component => {
                 return (
                     {
                         key: `component-${component.id}`,
@@ -84,7 +86,17 @@ class Tree extends Component {
 };
 
 export default withRouter(connect(
-    state => state.studies,
-    dispatch => bindActionCreators(actionCreators, dispatch)
+    state => {
+        const { studies, subTabs } = state
+        return { state: { studies, subTabs } }
+    },
+    dispatch => {
+        return {
+            actions: {
+                studiesActions: bindActionCreators(studiesActions, dispatch),
+                subTabsActions: bindActionCreators(subTabsActions, dispatch)
+            }
+        }
+    }
 )(Tree))
 

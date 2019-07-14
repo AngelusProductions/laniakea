@@ -2,14 +2,17 @@
     dataSubTab: 0,
     siteId: {},
     subjectId: {},
-    subjectVisitId: {}
+    subjectVisitId: {},
+    sidebarShow: true,
+    formInfoShow: false
 }
 
 const dataSubTabChangeType = 'DATA_SUB_TAB_CHANGE'
-
 const sitesSiteChangeType = 'SITES_SITE_CHANGE'
 const sitesSubjectChangeType = 'SITES_SUBJECT_CHANGE'
 const sitesSubjectVisitChangeType = 'SITES_SUBJECTVISIT_CHANGE'
+const setFormInfoShowType = 'SET_FORM_INFO_SHOW'
+const setSidebarShowType = 'SET_SIDEBAR_SHOW'
 
 export const actionCreators = {
     dataSubTabChange: (subTabId) => async (dispatch) => {
@@ -23,6 +26,12 @@ export const actionCreators = {
     },
     sitesSubjectVisitChange: (subjectVisitId) => async (dispatch) => {
         dispatch({ type: sitesSubjectVisitChangeType, subjectVisitId })
+    },
+    setFormInfoShow: status => async (dispatch) => {
+        dispatch({ type: setFormInfoShowType, status })
+    },
+    setSidebarShow: status => async (dispatch) => {
+        dispatch({ type: setSidebarShowType, status })
     }
 }
 
@@ -48,6 +57,16 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 subjectVisitId: action.subjectVisitId
+            }
+        case setFormInfoShowType:
+            return {
+                ...state,
+                formInfoShow: action.status
+            }
+        case setSidebarShowType:
+            return {
+                ...state,
+                sidebarShow: action.status
             }
         default:
             return state

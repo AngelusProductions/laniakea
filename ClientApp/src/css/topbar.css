@@ -13,19 +13,19 @@
 }
 
 #nessLogo {
-    width: 100%;
+    width: 7rem;
     filter: brightness(2.3) hue-rotate(7deg);
-    padding: 2rem 0 0 6%;
+    padding: 1rem 0 0 6%;
 }
 
 #organizersWrapper {
     /*background-color: #22ffe030;*/
-    grid-area: 1/8/1/11;
+    grid-area: 1/8/1/12;
 }
 
 #userInfoWrapper {
     /*background-color: #ffaaaa4f;*/
-    grid-area: 1/11/1/12;
+    grid-area: 1/12/1/12;
 }
 
 #burgerMenuWrapper {

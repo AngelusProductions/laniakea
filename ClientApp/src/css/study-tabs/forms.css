@@ -19,7 +19,8 @@
 #formsPageLogo {
     grid-area: 1/1/5/5;
     margin: 1rem 0 2rem 2rem;
-    width: 6rem;
+    width: 7rem;
+    height: 6rem;
     background: white;
     border: #a0a3ff solid 0.05rem;
     border-radius: 1.1rem;

@@ -49,16 +49,18 @@
 }
 
 #quickSearchIcon {
-    grid-area: 2/1/2/2;
-    width: 4rem;
-    height: auto;
-    display: inline-block;
-    margin: 0 1rem 1rem 0;
-    border: solid 0.15rem #23478e2e;
-    border-radius: 1.4rem;
-    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    grid-area: 1/2/1/2;
+    width: 7rem;
+    height: 6rem;
+    float: left;
+    display: -webkit-box;
+    margin: 0 -7rem 0rem 2rem;
+    background: white;
+    border: #a0a3ff solid 0.05rem;
+    border-radius: 1.1rem;
+    box-shadow: #d2eaff 0rem 0.6rem 0.1rem;
     padding: 0.2rem;
-    filter: hue-rotate(14deg);
+    /*filter: hue-rotate(14deg);*/
 }
 
 #quickSearchFieldsWrapper {

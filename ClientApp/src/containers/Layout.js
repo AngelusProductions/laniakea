@@ -22,11 +22,13 @@ class Layout extends Component {
     componentDidMount() { this.props.setIsLoading(false) }
 
     render() {
+        let sidebar = ''
         const url = this.props.location.pathname.split('/')[1]
         const page = (function(path) {
             switch (path) {
                 case '':
                 default:
+                    sidebar = <Sidebar /> 
                     return <LandingPage />
                 case 'studies':
                     return <ContentContainer />
@@ -36,7 +38,7 @@ class Layout extends Component {
             <div id="layoutGrid" className="normalize">
                 <Topbar />
                 <div id="pageWrapper">
-                    <Sidebar />
+                    {sidebar}
                     {page}
                     <Footer />
                 </div>
@@ -48,8 +50,8 @@ class Layout extends Component {
 
 export default withRouter(connect(
     state => {
-        const { studies, users } = state
-        return { state: { studies, users } }
+        const { studies, users, subTabs } = state
+        return { state: { studies, users, subTabs } }
     },
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(Layout))

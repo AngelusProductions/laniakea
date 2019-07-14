@@ -36,12 +36,20 @@ button:focus {
     outline: none;
 }
 
-input[type=text] {
-    border-radius: 1.4rem;
-    border: solid 0.15rem #23478e2e;
-    box-shadow: 0rem 0.2rem 0.1rem #61616191;
+/*input[type=text] {
+    background-color: #67a3ff0f;
+    display: block;
+    color: #0d0d0d;
     text-align: center;
-}
+    margin: 1rem auto;
+    text-decoration: none;
+    width: 18rem;
+    font-size: 16px;
+    border: 2px solid #f6f6f6;
+    transition: all 0.5s ease-in-out;
+    border-radius: 0.3rem;
+    box-shadow: 0rem 0.2rem 0.1rem #61616191;
+}*/
 
 input[type=text]:focus::-webkit-input-placeholder {
     opacity: 0;
@@ -57,4 +65,15 @@ input[type=text]:focus::-webkit-input-placeholder {
 
 input[type=text]:focus::-webkit-input-placeholder {
     opacity: 0.1;
+}
+
+.icon {
+    grid-area: 1/1/5/5;
+    margin: 1rem 0 2rem 2rem;
+    width: 6rem;
+    background: white;
+    border: #a0a3ff solid 0.05rem;
+    border-radius: 1.1rem;
+    box-shadow: #d2eaff 0rem 0.6rem 0.1rem;
+    padding: 0.2rem;
 }

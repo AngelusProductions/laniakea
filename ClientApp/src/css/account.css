@@ -1,4 +1,10 @@
 ﻿
+#studyToolbarPic {
+    width: 7rem;
+    margin-top: 2rem;
+    grid-area: 1/2/4/3;
+}
+
 #icon {
     width: 30%;
     height: auto;
@@ -12,13 +18,12 @@
 }
 
 #userPic {
-    grid-area: 3/2/3/3;
-    width: auto;
-    height: 5rem;
+    grid-area: 3/3/3/3;
+    width: 3rem;
+    height: auto;
     border-radius: 2rem;
     border: solid 0.15rem #23478e2e;
-    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
-    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #61616
 }
 
 #userName {
@@ -28,9 +33,10 @@
 }
 
 #editCrayon {
-    grid-area: 3/3/3/3;
-    width: 2rem;
-    margin-top: 3rem;
+    position: sticky;
+    grid-area: 3/3/4/4;
+    width: 1.4rem;
+    margin: 2rem 0rem 1rem 3rem;
 }
 #editCrayon:hover {
     filter: hue-rotate(90deg);
@@ -163,6 +169,7 @@ input[type=text] {
 /* ANIMATIONS */
 
 .fadeInDown {
+    z-index: 3;
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 0.5s;
