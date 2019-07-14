@@ -1,9 +1,9 @@
 ﻿
 #tabMenuWrapper {
     grid-area: 1/1/2/13;
-
     display: grid;
     grid-template: 1fr/repeat(10, 1fr);
+    z-index: 1;
 }
 
 .tab {
@@ -13,21 +13,49 @@
     width: 95%;
     background: white;
     border-radius: 0.4rem;
+    font-size: 0.7rem;
     display: inline;
-}
-.tab:hover {
-        color: #67a4ff;
-        cursor: pointer;
-    }
-.tab:active {
-    transform: scale(0.9);
+    transform: scale(1);
+    /*border: solid 0.15rem #67a3ff75;*/
+    border-bottom: none;
 }
 
+
 .selected-tab {
-    background: #67a4ff;
-    color: white;
+    background: white;
+    border: #a0a3ff solid 0.05rem;
+    border-radius: 1.1rem;
+    box-shadow: #d2eaff 0rem 0.6rem 0.1rem;
+    padding: 0.5rem;
 }
 
 .selected-tab:hover {
-    color: white;
+    /*color: white;*/
+}
+
+.tab-icon {
+    width: 3rem;
+    display: block;
+    min-height: 3rem;
+    margin: auto;
+    -webkit-transition: transform 0.2s ease-in-out;
+}
+
+.tab-icon:hover {
+    transform: scale(1.1);
+    color: #67a4ff;
+    cursor: pointer;
+}
+
+.tab-icon:active {
+    transform: scale(0.95);
+}
+
+@keyframes softOpen {
+    From {
+
+    }
+    To {
+
+    }
 }

@@ -14,10 +14,20 @@ namespace Laniakea.Controllers
     [Route("api/[controller]")]
     public class IOController : Controller
     {
-        [HttpGet("[action]/{studyId}/{withPHI}/{withTriggers}")]
-        public JsonResult CreateDVD(long studyId, bool withPHI, bool withTriggers)
+        [HttpGet("[action]/{sponsor}/{protocol}")]
+        public int CreateDVD(string sponsor, string protocol)
         {
-            return Json(new DirectoryInfo($@"\\TITAN\NeForm42\PDFs\{studyId}\"));
+            string sourcePath = $@"\\TITAN\NeForm42\PDFs\{sponsor}\{protocol}";
+            string targetPath = $@"\\TITAN\NeForm42\Laniakea\PDFExportTesting";
+
+            if (Directory.Exists(targetPath)) Directory.Delete(targetPath, true);
+            
+            foreach (string oldFolderPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+                Directory.CreateDirectory(oldFolderPath.Replace(sourcePath, targetPath));
+            foreach (string newFolderPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+                System.IO.File.Copy(newFolderPath, newFolderPath.Replace(sourcePath, targetPath), true);
+            // zip it, open download dialogue
+            return 200;
         }
 
         [HttpGet("[action]/{studyName}")]
@@ -46,8 +56,7 @@ namespace Laniakea.Controllers
                 Debugger.Break();
             }
         }
-
-
+            
     }
 
     public class Row

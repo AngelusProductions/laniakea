@@ -8,14 +8,17 @@
 }
 
 #dvdIcon {
-    grid-area: 2/1/1/7;
-    width: 8rem;
-    margin: 3rem auto 0 auto;
-    border: solid 0.15rem #23478e2e;
-    filter: hue-rotate(205deg);
-    box-shadow: 0rem 0.2rem 0.1rem #616161;
-    padding: 0.8rem;
-    border-radius: 6rem;
+    grid-area: 1/1/1/2;
+    width: 7rem;
+    height: 6rem;
+    float: left;
+    display: -webkit-box;
+    margin: 1rem -7rem 0rem 2rem;
+    background: white;
+    border: #a0a3ff solid 0.05rem;
+    border-radius: 1.1rem;
+    box-shadow: #d2eaff 0rem 0.6rem 0.1rem;
+    padding: 0.6rem;
 }
 
 #createDVDPageWrapper > label,

@@ -14,7 +14,7 @@
  * @link https://github.com/jonsuh/hamburgers
  */
 .hamburger {
-    padding: 15px 15px;
+    /*padding: 15px 15px;*/
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
@@ -24,8 +24,8 @@
     color: inherit;
     text-transform: none;
     background-color: transparent;
-    border: 0;
-    margin: 0;
+    /*border: 0;*/
+    /*margin: 0;*/
     overflow: visible;
 }
 
@@ -998,4 +998,9 @@
     .hamburger--vortex-r.is-active .hamburger-inner::after {
         bottom: 0;
         transform: rotate(-90deg);
+    }
+
+    #hamburgerId {
+        padding: 0;
+        margin: 0;
     }

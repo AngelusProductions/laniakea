@@ -12,7 +12,12 @@
     subjectVisitForm: {},
     answers: [],
     currentStudyId: 0,
+    currentSiteId: 0,
+    currentSubjectId: 0,
+    currentVisitId: 0,
+    currentFormId: 0,
     currentStudyTab: 0,
+    currentSubjectVisitFormId: 0,
     isLoading: false
 }
 
@@ -58,10 +63,14 @@ const receiveAnswersType = 'RECEIVE_ANSWERS'
 const requestCurrentStudyType = 'REQUEST_CURRENT_STUDY'
 const receiveCurrentStudyType = 'RECEIVE_CURRENT_STUDY'
 
+const setCurrentSubjectVisitFormType = 'SET_CURRENT_SUBJECT_VISIT_FORM'
 const currentStudyTabChangeType = 'CURRENT_STUDY_TAB_CHANGE'
 
 const setCurrentStudyType = 'SET_CURRENT_STUDY'
-
+const setCurrentSiteType = 'SET_CURRENT_SITE'
+const setCurrentSubjectType = 'SET_CURRENT_SUBJECT'
+const setCurrentVisitType = 'SET_CURRENT_VISIT'
+const setCurrentFormType = 'SET_CURRENT_FORM'
 const setIsLoadingType = 'SET_IS_LOADING'
 
 export const actionCreators = {
@@ -162,25 +171,22 @@ export const actionCreators = {
         dispatch({ type: receiveSubjectVisitFormType, subjectVisitForm })
     },
 
-    requestAnswers: subjectVisitFormId => async (dispatch) => {
+    requestAnswers: (subjectId, visitId, formId) => async (dispatch) => {
         dispatch({ type: requestAnswersType })
-        const url = `/api/Studies/GetAnswers/${subjectVisitFormId}`
+        const url = `/api/Studies/GetAnswers/${subjectId}/${visitId}/${formId}`
         const response = await fetch(url)
-        const subjectVisitForm = await response.json()
-        dispatch({ type: receiveAnswersType, subjectVisitForm })
+        const answers = await response.json()
+        dispatch({ type: receiveAnswersType, answers })
     },
 
-    setCurrentStudy: studyId => async (dispatch) => {
-        dispatch({ type: setCurrentStudyType, studyId })
-    },
-
-    currentStudyTabChange: studyId => async (dispatch) => {
-        dispatch({ type: currentStudyTabChangeType, studyId })
-    },
-
-    setIsLoading: isLoading => async (dispatch) => {
-        dispatch({ type: setIsLoadingType, isLoading })
-    }
+    setCurrentStudy: studyId => async (dispatch) => { dispatch({ type: setCurrentStudyType, studyId }) },
+    setCurrentSite: siteId => async (dispatch) => { dispatch({ type: setCurrentSiteType, siteId }) },
+    setCurrentSubject: subjectId => async (dispatch) => { dispatch({ type: setCurrentSubjectType, subjectId }) },
+    setCurrentVisit: visitId => async (dispatch) => { dispatch({ type: setCurrentVisitType, visitId }) },
+    setCurrentForm: formId => async (dispatch) => { dispatch({ type: setCurrentFormType, formId }) },
+    setCurrentSubjectVisitForm: subjectVisitFormId => async (dispatch) => { dispatch({ type: setCurrentSubjectVisitFormType, subjectVisitFormId }) },
+    currentStudyTabChange: studyTabId => async (dispatch) => { dispatch({ type: currentStudyTabChangeType, studyTabId }) },
+    setIsLoading: isLoading => async (dispatch) => { dispatch({ type: setIsLoadingType, isLoading }) }
 }
 
 export const reducer = (state, action) => {
@@ -354,10 +360,35 @@ export const reducer = (state, action) => {
                 ...state,
                 currentStudyId: action.studyId
             }
+        case setCurrentSiteType:
+            return {
+                ...state,
+                currentSiteId: action.siteId
+            }
+        case setCurrentSubjectType:
+            return {
+                ...state,
+                currentSubjectId: action.subjectId
+            }
+        case setCurrentVisitType:
+            return {
+                ...state,
+                currentVisitId: action.visitId
+            }
+        case setCurrentFormType:
+            return {
+                ...state,
+                currentFormId: action.formId
+            }
         case currentStudyTabChangeType:
             return {
                 ...state,
-                currentStudyTab: action.studyId
+                currentStudyTab: action.studyTabId
+            }
+        case setCurrentSubjectVisitFormType:
+            return {
+                ...state,
+                currentSubjectVisitForm: action.subjectVisitFormId
             }
         case setIsLoadingType:
             return {

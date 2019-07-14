@@ -35,11 +35,13 @@ class ContentContainer extends Component {
         ]
         let i
         !t ? i = this.props.state.studies.currentStudyTab : i = t
+        //debugger
         return components[i]
     }
 
     onTabClick(e) {
         const t = Number(e.target.id.substring(e.target.id.length - 1))
+        debugger
         this.setState({ selectedTab: t })
         this.props.currentStudyTabChange(t)
         this.renderTabContent.bind(this)(t)
@@ -47,8 +49,9 @@ class ContentContainer extends Component {
 
     render() {
         const content = this.renderTabContent.bind(this)()
-        return (
-            <div id="contentContainerWrapper">
+        const sidebarStatus = this.props.state.subTabs.sidebarShow ? "open" : "closed"
+       return (
+            <div id="contentContainerWrapper" className={sidebarStatus}>
                 <TabMenu onTabClick={this.onTabClick.bind(this)} />
                 <div id="contentWrapper">{content}</div>
             </div>
@@ -58,8 +61,8 @@ class ContentContainer extends Component {
 
 export default withRouter(connect(
     state => {
-        const { studies, users } = state
-        return { state: { studies, users } }
+        const { studies, users, subTabs } = state
+        return { state: { studies, users, subTabs } }
     },
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(ContentContainer))

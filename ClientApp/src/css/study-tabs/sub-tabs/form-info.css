@@ -14,3 +14,169 @@
     top: 33%;
 }
 
+#formInfoWrapper {
+    animation: grow 0.4s ease-in-out;
+    width: 50.7vw;
+    height: 67.3vh;
+    position: absolute;
+    background: linear-gradient(#b4d1ff -87%, white 17%, #ffa1ee14 133%);
+    top: 21.5vh;
+    z-index: 2;
+    border: solid white 0.7rem;
+    filter: drop-shadow(0.3rem 0.3rem 0.2rem #b38ab0);
+    border-radius: 2rem;
+    left: 48vw;
+    box-shadow: 0.2rem 0.5rem 0.3rem #00000033;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#formInfoHeader {
+    font-size: 2.2vmax;
+    margin: 2rem 4rem;
+    color: #002c71;
+    background: white;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0.2rem 3.2rem;
+    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    text-shadow: 0rem 0.1rem 0.1rem #ff5ee47a;
+    border: solid 0.15rem #67a3ff66;
+    border-radius: 1.4rem;
+    display: inline-block;
+    -webkit-transition: transform 0.2s ease-in-out;
+}
+
+#closeFormInfoButton {
+    float: right;
+    display: block;
+    width: 7rem;
+    left: 66%;
+    top: 79%;
+    position: sticky;
+    filter: hue-rotate(-220deg);
+    -webkit-transition: transform 0.2s ease-in-out;
+}
+
+#closeFormInfoButton:hover {
+    transform: scale(1.05);
+    filter: hue-rotate(-200deg);
+}
+    #closeFormInfoButton:active {
+        transform: scale(0.9);
+        filter: hue-rotate(-240eg);
+    }
+
+#subjectInfoWrapper {
+    float: left;
+    position: absolute;
+    left: 1.4vw;
+    top: 3.9%;
+    font-size: 1.7vmin;
+    color: #002c71;
+    background: white;
+    width: 9vw;
+    padding: 0.3rem 0.2rem;
+    -webkit-box-shadow: 0rem 0.2rem 0.1rem #616161;
+    box-shadow: 0rem 0.2rem 0.1rem #616161;
+    text-shadow: 0rem 0.1rem 0.1rem #ff5ee47a;
+    border: solid 0.15rem #67a3ff66;
+    border-radius: 1.4rem;
+    display: inline-block;
+}
+
+#subjectInfoLabel {
+    font-weight: bold;
+}
+
+.form-info-q-a {
+    display: block;
+    margin-bottom: 0.8rem;
+    text-align: left;
+}
+
+#formInfoFieldName {
+    font-size: 0.9rem;
+    display: inline;
+    color: white;
+    background: #595eff;
+    min-width: fit-content;
+    font-weight: bold;
+    max-width: 8rem;
+    margin: 1rem auto 0 1rem;
+    border-radius: 0.3rem;
+    box-shadow: #e2f2ff 0rem 0.2rem 0.1rem;
+    padding: 0.2rem 0.5rem;
+    text-align: left;
+}
+
+#formInfoAnswer {
+    font-size: 0.9rem;
+    display: inline;
+    background-color: white;
+    margin: 1rem auto 0 1rem;
+    border-radius: 0.3rem;
+    box-shadow: #a0a3ff 0rem 0.3rem 0.1rem;
+    padding: 0rem 0.5rem;
+}
+
+@keyframes grow {
+    from {
+        width: 0;
+        height: 0;
+        position: absolute;
+        background: linear-gradient(#ff77e7 -68%, white 50%, #ffa1ee14 133%);
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        border: none;
+        filter: none;
+        border-radius: 5rem;
+        opacity: 0.0;
+    }
+    to {
+        animation: grow 0.4s ease-in-out;
+        width: 50.7vw;
+        height: 67.3vh;
+        position: absolute;
+        background: linear-gradient(#b4d1ff -87%, white 17%, #b38ab0 133%);
+        top: 21.5vh;
+        z-index: 2;
+        border: solid white 0.7rem;
+        filter: drop-shadow(0.3rem 0.3rem 0.2rem #b38ab0);
+        border-radius: 2rem;
+        left: 48vw;
+        box-shadow: 0.2rem 0.5rem 0.3rem #00000033;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+@keyframes die {
+    from {
+        width: 81.7vw;
+        height: 74.3vh;
+        position: absolute;
+        background: linear-gradient(#ff77e7 -68%, white 50%, #d1e3ff 133%);
+        left: 16.6%;
+        top: 18.5vh;
+        z-index: 1;
+        border: solid white 1.3rem;
+        filter: drop-shadow(0.4rem 0.4rem 1.2rem black);
+        border-radius: 5rem;
+    }
+
+    to {
+        width: 0;
+        height: 0;
+        position: absolute;
+        background: linear-gradient(#ff77e7 -68%, white 50%, #d1e3ff 133%);
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        border: none;
+        filter: none;
+        border-radius: 5rem;
+    }
+}

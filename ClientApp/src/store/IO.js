@@ -16,12 +16,12 @@ const receiveRowsExportType = 'RECEIVE_ROWS_EXPORT'
 
 export const actionCreators = {
 
-    createDVD: (studyComponentId, includePHI, includeTriggers) => async (dispatch) => {
+    createDVD: study => async (dispatch) => {
         dispatch({ type: createDVDRequestType })
-        const url = `/api/IO/CreateDVD/${studyComponentId}/${includePHI}/${includeTriggers}`
+        const url = `/api/IO/CreateDVD/${study.sponsor.split(' ')[0]}/${study.protocol}`
         const response = await fetch(url)
-        const dvd = await response.json()
-        dispatch({ type: createDVDResponseType, dvd })
+        const dvdStatus = await response.json()
+        dispatch({ type: createDVDResponseType, dvdStatus })
     },
 
     requestDirectoryInfo: study => async (dispatch) => {
@@ -45,7 +45,6 @@ export const actionCreators = {
                 body: JSON.stringify(rows)
             }
         )
-        debugger
         const pdf = await response.json()
         dispatch({ type: receiveRowsExportType, pdf })
     }

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
 using Microsoft.AspNetCore.Mvc;
 using NEFormValidationSystem;
+using Newtonsoft.Json.Linq;
 
 namespace Laniakea.Controllers
 {
@@ -88,16 +90,24 @@ namespace Laniakea.Controllers
         public JsonResult GetSubjectVisitForm(long subjectId, long visitId, long formId)
         {
 
-            var visit = NEFormValidationObject.Fetcher.GetFromId<Visit>((int)visitId);   NEValidation.VisitForms.Find( vf => vf.VisitId == visitId);
+            var visit = NEFormValidationObject.Fetcher.GetFromId<Visit>((int)visitId);
             var form = NEFormValidationObject.Fetcher.GetFromId<Form>((int)formId);            
             var subject = NEFormValidationObject.Fetcher.GetFromId<Subject>((int)subjectId);
             var subjectVisit = subject.SubjectVisits().FirstOrDefault(a => a.VisitId == visitId);
-
-
             var svf = visit.VisitForms().Where(a => a.FormId == formId).First().SubjectVisitForms().FirstOrDefault(a => a.SubjectVisitId == subjectVisit.Id);
             return Json(svf);
-            //var subjectVisitForms = NEValidation.SubjectVisitForms.Find( svf => svf.VisitFormId == visitForm.Id);
-            //return Json(subjectVisitForms);
+        }
+
+        [HttpGet("[action]/{subjectId}/{visitId}/{formId}")]
+        public List<NESS.Databases.NESurveyAnswer> GetAnswers(long subjectId, long visitId, long formId)
+        {
+            var visit = NEFormValidationObject.Fetcher.GetFromId<Visit>((int)visitId);
+            var form = NEFormValidationObject.Fetcher.GetFromId<Form>((int)formId);
+            var subject = NEFormValidationObject.Fetcher.GetFromId<Subject>((int)subjectId);
+            var subjectVisit = subject.SubjectVisits().FirstOrDefault(a => a.VisitId == visitId);
+            var svf = visit.VisitForms().Where(a => a.FormId == formId).First().SubjectVisitForms().FirstOrDefault(a => a.SubjectVisitId == subjectVisit.Id);
+            var defaultResponse = new List<NESS.Databases.NESurveyAnswer>();
+            return svf != null ? svf.GetAnswers() : defaultResponse;
         }
     }
 }

@@ -9,22 +9,23 @@
 
 #laniakeaBackground {
     width: 26rem;
-    margin: 3rem 0 3rem 0;
+    margin: 11rem 0 3rem 0;
 }
 
 #laniakeaTitle {
-    font-size: 9rem;
+    font-size: 2.4rem;
+    margin-top: 6rem;
     color: rgba(0, 123, 255, 0.5);
 }
 
-#laniakeaSubtitle {
+/*#laniakeaSubtitle {
     font-size: 1.35rem;
-}
+}*/
 
 #logo-landing-page {
     width: 14rem;
     height: auto;
-    margin-top: 9rem;
+    margin-top: 12rem;
 }
     #logo-landing-page:hover {
         -webkit-transform: scale(1.1);

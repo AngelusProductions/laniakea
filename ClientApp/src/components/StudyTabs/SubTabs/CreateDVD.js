@@ -13,14 +13,15 @@ class CreateDVD extends Component {
 
     componentDidMount() { this.props.requestDirectoryInfo(this.props.state.studies.study) }
 
-    onCreateDVDButtonClick(e) {
-        this.props.createDVD(this.props.state.studies.currentStudyId, this.state.withPHI, this.state.withTriggers)
+    onCreateDVDButtonClick() {
+        this.props.createDVD(this.props.state.studies.study)
     }
     onCheckboxChange(e) { this.setState({ [e.target.name]: !this.state[e.target.name] }) }
 
     render() {
         const { withPHI, withoutPHI, withTriggers, withoutTriggers } = this.props.state.io.directoryInfo
         if ('directoryInfo' in this.props.state.io && Object.values(this.state).includes(null)) { this.setState({ withPHI, withoutPHI, withTriggers, withoutTriggers }) }
+        const loadingGif = this.props.state.io.isLoading ? <img src="https://ness-production.s3.amazonaws.com/NESSLogo.gif" id="loadingGif" alt="ness" /> : ''
         return (
             <div id="createDVDPageWrapper">
 
@@ -59,7 +60,7 @@ class CreateDVD extends Component {
                 </label>
 
                 <button type="submit" id="createDVDButton" onClick={this.onCreateDVDButtonClick.bind(this)}>export</button>
-                
+                {loadingGif}
             </div>
         )
 

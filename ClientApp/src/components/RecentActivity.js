@@ -18,7 +18,6 @@ class Activity extends Component {
         return (
             <div id="activityWrapper">
                 <img id="spinningIcon" alt="recent activity" src="https://newvitruvian.com/images/spinner-svg-page-loading-2.gif" />
-                <div id="recentActivityTitle">Recent activity</div>
             </div>
         )
     }
@@ -28,3 +27,4 @@ export default withRouter(connect(
     state => state.users,
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(Activity))
+    //< div id = "recentActivityTitle" > Recent activity</div >
